@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import getSupabase from '../utils/supabase';
+import getSupabase, { updateLastLogin } from '../utils/supabase';
 import { getProfile, updateProfile, signOut as authSignOut } from '../utils/auth';
 import { ADMIN_EMAILS } from '../config/admin';
 
@@ -32,6 +32,8 @@ export const AuthProvider = ({ children }) => {
         setProfile(p);
       }
     }
+
+    updateLastLogin(authUser.id);
 
     try {
       const client = getSupabase();

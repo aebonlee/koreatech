@@ -21,6 +21,7 @@ const BoardWrite = lazy(() => import('../pages/BoardWrite'));
 const Lectures = lazy(() => import('../pages/Lectures'));
 const LectureDetail = lazy(() => import('../pages/LectureDetail'));
 const LectureWrite = lazy(() => import('../pages/LectureWrite'));
+const Admin = lazy(() => import('../pages/Admin'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 const Loading = () => (
@@ -62,6 +63,9 @@ const PublicLayout = () => {
             <Route path="/board" element={<Board />} />
             <Route path="/board/write" element={<AuthGuard><BoardWrite /></AuthGuard>} />
             <Route path="/board/:id" element={<BoardDetail />} />
+
+            {/* Admin */}
+            <Route path="/admin" element={<AuthGuard><Admin /></AuthGuard>} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />

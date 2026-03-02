@@ -176,6 +176,25 @@ export const translations = {
         empty: '등록된 강의안이 없습니다.',
         adminOnly: '관리자만 접근할 수 있습니다.'
       },
+      admin: {
+        title: '관리자',
+        subtitle: '회원 관리 및 접속 현황',
+        totalMembers: '전체 회원',
+        recentSignups: '최근 7일 가입',
+        recentLogins: '최근 7일 접속',
+        name: '이름',
+        email: '이메일',
+        provider: '가입 경로',
+        role: '역할',
+        signupDate: '가입일',
+        lastLogin: '최근 접속',
+        search: '이름 또는 이메일 검색...',
+        allProviders: '전체',
+        noMembers: '회원이 없습니다.',
+        accessDenied: '관리자만 접근할 수 있습니다.',
+        never: '없음',
+        unit: '명'
+      },
       board: {
         title: '게시판',
         subtitle: '질문, 공지, 자유 게시판',
@@ -382,6 +401,25 @@ export const translations = {
         notFound: 'Lecture not found.',
         empty: 'No lectures available.',
         adminOnly: 'Admin access only.'
+      },
+      admin: {
+        title: 'Admin',
+        subtitle: 'Member management & access status',
+        totalMembers: 'Total Members',
+        recentSignups: 'Signups (7 days)',
+        recentLogins: 'Logins (7 days)',
+        name: 'Name',
+        email: 'Email',
+        provider: 'Provider',
+        role: 'Role',
+        signupDate: 'Signed Up',
+        lastLogin: 'Last Login',
+        search: 'Search name or email...',
+        allProviders: 'All',
+        noMembers: 'No members found.',
+        accessDenied: 'Admin access only.',
+        never: 'Never',
+        unit: ''
       },
       board: {
         title: 'Board',

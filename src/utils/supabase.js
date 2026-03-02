@@ -301,4 +301,34 @@ export const incrementLectureViews = async (id) => {
   await client.rpc('increment_lecture_views', { lecture_id: id }).catch(() => {});
 };
 
+/**
+ * 전체 회원 프로필 조회 (관리자 전용 — RLS 정책 필요)
+ */
+export const getAllProfiles = async () => {
+  const client = getSupabase();
+  if (!client) return [];
+
+  const { data, error } = await client
+    .from('user_profiles')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('getAllProfiles error:', error);
+    return [];
+  }
+
+  return data || [];
+};
+
+/**
+ * 최근 접속 시간 업데이트 (RPC: update_last_login)
+ */
+export const updateLastLogin = async (userId) => {
+  const client = getSupabase();
+  if (!client) return;
+
+  await client.rpc('update_last_login', { target_user_id: userId }).catch(() => {});
+};
+
 export default getSupabase;
