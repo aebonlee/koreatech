@@ -35,7 +35,7 @@ const LectureDetail = () => {
     try {
       await deleteLecture(id);
       showToast(t('site.lectures.deleted'), 'success');
-      navigate('/lectures');
+      navigate('/references');
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -56,7 +56,7 @@ const LectureDetail = () => {
       <section className="section">
         <div className="container">
           <div className="board-empty">{t('site.lectures.notFound')}</div>
-          <Link to="/lectures" className="board-btn">{t('site.lectures.backToList')}</Link>
+          <Link to="/references" className="board-btn">{t('site.lectures.backToList')}</Link>
         </div>
       </section>
     );
@@ -64,11 +64,11 @@ const LectureDetail = () => {
 
   return (
     <>
-      <SEOHead title={lecture.title} path={`/lectures/${id}`} />
+      <SEOHead title={lecture.title} path={`/references/${id}`} />
 
       <section className="page-header">
         <div className="container">
-          <h1>{t('site.lectures.title')}</h1>
+          <h1>{t('site.references.title')}</h1>
         </div>
       </section>
 
@@ -85,20 +85,6 @@ const LectureDetail = () => {
                 <span>{t('site.lectures.views')}: {lecture.views || 0}</span>
               </div>
             </div>
-
-            {lecture.slide_url && (
-              <div className="lecture-slide-section">
-                <h3 className="lecture-section-title">{t('site.lectures.slideTitle')}</h3>
-                <div className="lecture-slide-container">
-                  <iframe
-                    src={lecture.slide_url}
-                    title={lecture.title}
-                    allowFullScreen
-                  />
-                </div>
-                <p className="lecture-slide-help">{t('site.lectures.slideHelp')}</p>
-              </div>
-            )}
 
             {lecture.content && (
               <div className="lecture-detail-content">
@@ -121,21 +107,13 @@ const LectureDetail = () => {
               </div>
             )}
 
-            {lecture.tags && lecture.tags.length > 0 && (
-              <div className="lecture-tags-section">
-                {lecture.tags.map((tag, i) => (
-                  <span key={i} className="lecture-tag">{tag}</span>
-                ))}
-              </div>
-            )}
-
             <div className="lecture-detail-actions">
-              <Link to="/lectures" className="board-btn">
+              <Link to="/references" className="board-btn">
                 {t('site.lectures.backToList')}
               </Link>
               {isAdmin && (
                 <>
-                  <Link to={`/lectures/edit/${id}`} className="board-btn primary">
+                  <Link to={`/references/edit/${id}`} className="board-btn primary">
                     {t('site.lectures.edit')}
                   </Link>
                   <button className="board-btn danger" onClick={handleDelete}>

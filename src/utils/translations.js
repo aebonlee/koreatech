@@ -104,6 +104,7 @@ export const translations = {
         pyWeek10: '10주차: 예외처리',
         pyWeek11: '11주차: 리스트',
         lectures: '주차별 강의안',
+        references: '주차별 참고자료',
         lectureMaterials: '강의자료 다운로드',
         lectureBoard: '강의안 게시판',
         board: '게시판'
@@ -201,6 +202,12 @@ export const translations = {
         notFound: '강의안을 찾을 수 없습니다.',
         empty: '등록된 강의안이 없습니다.',
         adminOnly: '관리자만 접근할 수 있습니다.'
+      },
+      references: {
+        title: '주차별 참고자료',
+        subtitle: '주차별 참고 자료를 확인하세요',
+        write: '참고자료 등록',
+        empty: '등록된 참고자료가 없습니다.',
       },
       admin: {
         title: '관리자',
@@ -356,6 +363,7 @@ export const translations = {
         pyWeek10: 'W10: Exceptions',
         pyWeek11: 'W11: Lists',
         lectures: 'Lectures',
+        references: 'References',
         lectureMaterials: 'Lecture Materials',
         lectureBoard: 'Lecture Board',
         board: 'Board'
@@ -453,6 +461,12 @@ export const translations = {
         notFound: 'Lecture not found.',
         empty: 'No lectures available.',
         adminOnly: 'Admin access only.'
+      },
+      references: {
+        title: 'Weekly References',
+        subtitle: 'Check weekly reference materials',
+        write: 'New Reference',
+        empty: 'No references available.',
       },
       admin: {
         title: 'Admin',

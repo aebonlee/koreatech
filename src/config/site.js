@@ -62,6 +62,7 @@ const site = {
       ]
     },
     { path: '/lectures', labelKey: 'site.nav.lectures', activePath: '/lectures' },
+    { path: '/references', labelKey: 'site.nav.references', activePath: '/references' },
     { path: '/board', labelKey: 'site.nav.board', activePath: '/board' }
   ],
 

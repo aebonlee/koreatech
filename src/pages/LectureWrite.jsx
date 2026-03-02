@@ -18,12 +18,8 @@ const LectureWrite = () => {
   const [form, setForm] = useState({
     week_number: '',
     title: '',
-    description: '',
-    slide_url: '',
     file_url: '',
-    cover_image: '',
     content: '',
-    tags: '',
     is_published: true,
   });
   const [submitting, setSubmitting] = useState(false);
@@ -42,12 +38,8 @@ const LectureWrite = () => {
       setForm({
         week_number: data.week_number || '',
         title: data.title || '',
-        description: data.description || '',
-        slide_url: data.slide_url || '',
         file_url: (data.file_url || '').replace(/^\/pdf\//, ''),
-        cover_image: data.cover_image || '',
         content: data.content || '',
-        tags: (data.tags || []).join(', '),
         is_published: data.is_published !== false,
       });
     }
@@ -59,7 +51,7 @@ const LectureWrite = () => {
       <section className="section">
         <div className="container">
           <div className="board-empty">{t('site.lectures.adminOnly')}</div>
-          <Link to="/lectures" className="board-btn">{t('site.lectures.backToList')}</Link>
+          <Link to="/references" className="board-btn">{t('site.lectures.backToList')}</Link>
         </div>
       </section>
     );
@@ -75,19 +67,15 @@ const LectureWrite = () => {
 
     setSubmitting(true);
     try {
-      const tagsArray = form.tags
-        ? form.tags.split(',').map((t) => t.trim()).filter(Boolean)
-        : [];
-
       const lectureData = {
         week_number: Number(form.week_number),
         title: form.title.trim(),
-        description: form.description.trim(),
-        slide_url: form.slide_url.trim(),
+        description: '',
+        slide_url: '',
         file_url: form.file_url.trim() ? (form.file_url.trim().startsWith('http') ? form.file_url.trim() : `/pdf/${form.file_url.trim()}`) : '',
-        cover_image: form.cover_image.trim(),
+        cover_image: '',
         content: form.content.trim(),
-        tags: tagsArray,
+        tags: [],
         is_published: form.is_published,
         user_id: user.id,
       };
@@ -100,7 +88,7 @@ const LectureWrite = () => {
         lecture = await createLecture(lectureData);
         showToast(t('site.lectures.created'), 'success');
       }
-      navigate(`/lectures/${lecture.id}`);
+      navigate(`/references/${lecture.id}`);
     } catch (err) {
       showToast(err.message, 'error');
     } finally {
@@ -122,7 +110,7 @@ const LectureWrite = () => {
     <>
       <SEOHead
         title={isEdit ? t('site.lectures.editTitle') : t('site.lectures.writeTitle')}
-        path={isEdit ? `/lectures/edit/${id}` : '/lectures/write'}
+        path={isEdit ? `/references/edit/${id}` : '/references/write'}
         noindex
       />
 
@@ -160,22 +148,12 @@ const LectureWrite = () => {
             </div>
 
             <div className="form-group">
-              <label>{t('site.lectures.description')}</label>
-              <input
-                type="text"
-                value={form.description}
-                onChange={(e) => handleChange('description', e.target.value)}
-                placeholder={t('site.lectures.descriptionPlaceholder')}
-              />
-            </div>
-
-            <div className="form-group">
-              <label>{t('site.lectures.slideUrl')}</label>
-              <input
-                type="url"
-                value={form.slide_url}
-                onChange={(e) => handleChange('slide_url', e.target.value)}
-                placeholder={t('site.lectures.slideUrlPlaceholder')}
+              <label>{t('site.lectures.content')}</label>
+              <textarea
+                value={form.content}
+                onChange={(e) => handleChange('content', e.target.value)}
+                placeholder={t('site.lectures.contentPlaceholder')}
+                rows={12}
               />
             </div>
 
@@ -194,36 +172,6 @@ const LectureWrite = () => {
             </div>
 
             <div className="form-group">
-              <label>{t('site.lectures.coverImage')}</label>
-              <input
-                type="url"
-                value={form.cover_image}
-                onChange={(e) => handleChange('cover_image', e.target.value)}
-                placeholder={t('site.lectures.coverImagePlaceholder')}
-              />
-            </div>
-
-            <div className="form-group">
-              <label>{t('site.lectures.content')}</label>
-              <textarea
-                value={form.content}
-                onChange={(e) => handleChange('content', e.target.value)}
-                placeholder={t('site.lectures.contentPlaceholder')}
-                rows={12}
-              />
-            </div>
-
-            <div className="form-group">
-              <label>{t('site.lectures.tagsLabel')}</label>
-              <input
-                type="text"
-                value={form.tags}
-                onChange={(e) => handleChange('tags', e.target.value)}
-                placeholder={t('site.lectures.tagsPlaceholder')}
-              />
-            </div>
-
-            <div className="form-group">
               <label className="form-checkbox-label">
                 <input
                   type="checkbox"
@@ -235,7 +183,7 @@ const LectureWrite = () => {
             </div>
 
             <div className="form-actions">
-              <button type="button" className="board-btn" onClick={() => navigate('/lectures')}>
+              <button type="button" className="board-btn" onClick={() => navigate('/references')}>
                 {t('site.lectures.cancel')}
               </button>
               <button type="submit" className="board-btn primary" disabled={submitting}>

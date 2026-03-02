@@ -32,12 +32,12 @@ const Lectures = () => {
 
   return (
     <>
-      <SEOHead title={t('site.lectures.title')} path="/lectures" />
+      <SEOHead title={t('site.references.title')} path="/references" />
 
       <section className="page-header">
         <div className="container">
-          <h1>{t('site.lectures.title')}</h1>
-          <p>{t('site.lectures.subtitle')}</p>
+          <h1>{t('site.references.title')}</h1>
+          <p>{t('site.references.subtitle')}</p>
         </div>
       </section>
 
@@ -49,8 +49,8 @@ const Lectures = () => {
             <>
               {isAdmin && (
                 <div className="lecture-toolbar">
-                  <Link to="/lectures/write" className="board-write-btn">
-                    {t('site.lectures.write')}
+                  <Link to="/references/write" className="board-write-btn">
+                    {t('site.references.write')}
                   </Link>
                 </div>
               )}
@@ -60,7 +60,7 @@ const Lectures = () => {
                   <div className="loading-spinner"></div>
                 </div>
               ) : lectures.length === 0 ? (
-                <div className="board-empty">{t('site.lectures.empty')}</div>
+                <div className="board-empty">{t('site.references.empty')}</div>
               ) : (
                 <div className="board-table-wrapper">
                   <table className="board-table">
@@ -68,7 +68,6 @@ const Lectures = () => {
                       <tr>
                         <th className="lecture-col-week">{t('site.lectures.weekPrefix')}</th>
                         <th className="board-col-title">{t('site.lectures.titleLabel')}</th>
-                        <th className="lecture-col-desc">{t('site.lectures.descriptionCol')}</th>
                         <th className="board-col-date">{t('site.lectures.date')}</th>
                         <th className="lecture-col-views">{t('site.lectures.views')}</th>
                       </tr>
@@ -82,9 +81,8 @@ const Lectures = () => {
                             </span>
                           </td>
                           <td className="board-col-title">
-                            <Link to={`/lectures/${lecture.id}`}>{lecture.title}</Link>
+                            <Link to={`/references/${lecture.id}`}>{lecture.title}</Link>
                           </td>
-                          <td className="lecture-col-desc">{lecture.description}</td>
                           <td className="board-col-date">{formatDate(lecture.created_at)}</td>
                           <td className="lecture-col-views">{lecture.views || 0}</td>
                         </tr>

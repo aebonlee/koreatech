@@ -32,6 +32,8 @@ const BoardDetail = lazy(() => import('../pages/BoardDetail'));
 const BoardWrite = lazy(() => import('../pages/BoardWrite'));
 const LectureMaterials = lazy(() => import('../pages/LectureMaterials'));
 const Lectures = lazy(() => import('../pages/Lectures'));
+const LectureDetail = lazy(() => import('../pages/LectureDetail'));
+const LectureWrite = lazy(() => import('../pages/LectureWrite'));
 const Admin = lazy(() => import('../pages/Admin'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
@@ -82,6 +84,12 @@ const PublicLayout = () => {
             {/* Lectures */}
             <Route path="/lectures/materials" element={<LectureMaterials />} />
             <Route path="/lectures" element={<LectureMaterials />} />
+
+            {/* References (주차별 참고자료) */}
+            <Route path="/references" element={<Lectures />} />
+            <Route path="/references/write" element={<AuthGuard><LectureWrite /></AuthGuard>} />
+            <Route path="/references/edit/:id" element={<AuthGuard><LectureWrite /></AuthGuard>} />
+            <Route path="/references/:id" element={<LectureDetail />} />
 
             {/* Board */}
             <Route path="/board" element={<Board />} />
