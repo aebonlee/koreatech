@@ -28,23 +28,36 @@
   text-align: center;
 }
 
-.hero-content {
+/* Override template hero.css / responsive.css class conflicts */
+.hero-section .hero-content {
   max-width: 720px;
   margin: 0 auto;
+  position: static;
+  z-index: auto;
+  display: block;
+  height: auto;
 }
 
-.hero-title {
+.hero-section .hero-title {
   font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
   line-height: 1.3;
+  color: #fff;
+  display: block;
+  height: auto;
+  letter-spacing: -0.02em;
 }
 
-.hero-description {
+.hero-section .hero-description {
   font-size: 1.1rem;
   line-height: 1.8;
   opacity: 0.9;
   margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  height: auto;
+  overflow: visible;
+  max-width: none;
 }
 
 .hero-actions {
@@ -748,8 +761,20 @@
     padding: calc(var(--nav-height) + 40px) 0 60px;
   }
 
-  .hero-title {
+  .hero-section .hero-title {
     font-size: 2rem;
+    height: auto;
+    display: block;
+  }
+
+  .hero-section .hero-content {
+    display: block;
+    height: auto;
+  }
+
+  .hero-section .hero-description {
+    height: auto;
+    overflow: visible;
   }
 
   .curriculum-grid {
@@ -782,12 +807,14 @@
 }
 
 @media (max-width: 480px) {
-  .hero-title {
+  .hero-section .hero-title {
     font-size: 1.6rem;
+    height: auto;
   }
 
-  .hero-description {
+  .hero-section .hero-description {
     font-size: 0.95rem;
+    height: auto;
   }
 
   .lesson-body h2 {
@@ -798,6 +825,12 @@
     font-size: 0.8rem;
     padding: 12px;
   }
+}
+
+/* ─── Hero AOS override: above-the-fold content always visible ─── */
+.hero-section [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* ─── Dark Mode Overrides ─── */
