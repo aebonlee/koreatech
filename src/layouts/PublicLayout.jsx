@@ -28,9 +28,9 @@ const Loading = () => (
 
 const PublicLayout = () => {
   return (
-    <>
+    <div className="site-wrapper">
       <Navbar />
-      <main>
+      <main className="site-main">
         <Suspense fallback={<Loading />}>
           <Routes>
             {/* Home */}
@@ -60,7 +60,7 @@ const PublicLayout = () => {
         </Suspense>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
