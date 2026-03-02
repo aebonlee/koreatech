@@ -199,4 +199,106 @@ export const searchPosts = async (query) => {
   return data || [];
 };
 
+/**
+ * 강의안 목록 조회
+ */
+export const getLectures = async () => {
+  const client = getSupabase();
+  if (!client) return [];
+
+  const { data, error } = await client
+    .from('lectures')
+    .select('*')
+    .eq('is_published', true)
+    .order('week_number', { ascending: true });
+
+  if (error) {
+    console.error('getLectures error:', error);
+    return [];
+  }
+
+  return data || [];
+};
+
+/**
+ * 강의안 상세 조회
+ */
+export const getLectureById = async (id) => {
+  const client = getSupabase();
+  if (!client) return null;
+
+  const { data, error } = await client
+    .from('lectures')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error('getLectureById error:', error);
+    return null;
+  }
+
+  return data;
+};
+
+/**
+ * 강의안 등록
+ */
+export const createLecture = async (lectureData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('lectures')
+    .insert(lectureData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+/**
+ * 강의안 수정
+ */
+export const updateLecture = async (id, lectureData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('lectures')
+    .update({ ...lectureData, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+/**
+ * 강의안 삭제
+ */
+export const deleteLecture = async (id) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { error } = await client
+    .from('lectures')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+};
+
+/**
+ * 강의안 조회수 증가
+ */
+export const incrementLectureViews = async (id) => {
+  const client = getSupabase();
+  if (!client) return;
+
+  await client.rpc('increment_lecture_views', { lecture_id: id }).catch(() => {});
+};
+
 export default getSupabase;

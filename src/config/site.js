@@ -43,6 +43,7 @@ const site = {
         { path: '/python/data', labelKey: 'site.nav.pythonData' }
       ]
     },
+    { path: '/lectures', labelKey: 'site.nav.lectures', activePath: '/lectures' },
     { path: '/board', labelKey: 'site.nav.board', activePath: '/board' }
   ],
 
@@ -50,6 +51,7 @@ const site = {
   footerLinks: [
     { path: '/', labelKey: 'nav.home' },
     { path: '/python', labelKey: 'site.nav.python' },
+    { path: '/lectures', labelKey: 'site.nav.lectures' },
     { path: '/board', labelKey: 'site.nav.board' }
   ],
 

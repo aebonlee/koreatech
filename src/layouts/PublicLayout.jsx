@@ -18,6 +18,9 @@ const PythonData = lazy(() => import('../pages/PythonData'));
 const Board = lazy(() => import('../pages/Board'));
 const BoardDetail = lazy(() => import('../pages/BoardDetail'));
 const BoardWrite = lazy(() => import('../pages/BoardWrite'));
+const Lectures = lazy(() => import('../pages/Lectures'));
+const LectureDetail = lazy(() => import('../pages/LectureDetail'));
+const LectureWrite = lazy(() => import('../pages/LectureWrite'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 const Loading = () => (
@@ -48,6 +51,12 @@ const PublicLayout = () => {
             <Route path="/python/control" element={<PythonControl />} />
             <Route path="/python/functions" element={<PythonFunctions />} />
             <Route path="/python/data" element={<PythonData />} />
+
+            {/* Lectures */}
+            <Route path="/lectures" element={<Lectures />} />
+            <Route path="/lectures/write" element={<AuthGuard><LectureWrite /></AuthGuard>} />
+            <Route path="/lectures/edit/:id" element={<AuthGuard><LectureWrite /></AuthGuard>} />
+            <Route path="/lectures/:id" element={<LectureDetail />} />
 
             {/* Board */}
             <Route path="/board" element={<Board />} />
