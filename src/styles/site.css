@@ -820,6 +820,10 @@
 .board-col-date { width: 100px; }
 .board-col-views { width: 60px; text-align: center; }
 
+.lecture-col-week { width: 80px; }
+.lecture-col-desc { color: var(--text-secondary); }
+.lecture-col-views { width: 60px; text-align: center; }
+
 .board-table td a {
   color: var(--text-primary);
   text-decoration: none;
@@ -1325,6 +1329,10 @@
 
   .board-col-author,
   .board-col-views {
+    display: none;
+  }
+
+  .lecture-col-desc {
     display: none;
   }
 

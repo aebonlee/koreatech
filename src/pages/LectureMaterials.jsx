@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SEOHead from '../components/SEOHead';
 
@@ -19,13 +18,8 @@ const PDF_LIST = [
 
 const LectureMaterials = () => {
   const { t, language } = useLanguage();
-  const [viewingPdf, setViewingPdf] = useState(null);
 
   const getPdfUrl = (file) => `${import.meta.env.BASE_URL}pdf/${file}`;
-
-  const handleView = (pdf) => {
-    setViewingPdf(viewingPdf?.file === pdf.file ? null : pdf);
-  };
 
   return (
     <>
@@ -52,7 +46,7 @@ const LectureMaterials = () => {
               </thead>
               <tbody>
                 {PDF_LIST.map((pdf) => (
-                  <tr key={pdf.week} className={viewingPdf?.file === pdf.file ? 'active-row' : ''}>
+                  <tr key={pdf.week}>
                     <td className="materials-col-week">
                       <span className="materials-week-badge">
                         {pdf.week}{t('site.lectures.materials.weekUnit')}
@@ -64,21 +58,13 @@ const LectureMaterials = () => {
                     <td className="materials-col-file materials-file-cell">{pdf.file}</td>
                     <td className="materials-col-actions">
                       <div className="materials-btn-group">
-                        <button
-                          className={`materials-btn view ${viewingPdf?.file === pdf.file ? 'active' : ''}`}
-                          onClick={() => handleView(pdf)}
-                        >
-                          {viewingPdf?.file === pdf.file
-                            ? t('site.lectures.materials.close')
-                            : t('site.lectures.materials.view')}
-                        </button>
                         <a
                           className="materials-btn newtab"
                           href={getPdfUrl(pdf.file)}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          {t('site.lectures.materials.newTab')}
+                          {t('site.lectures.materials.view')}
                         </a>
                         <a
                           className="materials-btn download"
@@ -94,26 +80,6 @@ const LectureMaterials = () => {
               </tbody>
             </table>
           </div>
-
-          {viewingPdf && (
-            <div className="pdf-viewer">
-              <div className="pdf-viewer-header">
-                <h3>
-                  {viewingPdf.week}{t('site.lectures.materials.weekUnit')} —{' '}
-                  {language === 'ko' ? viewingPdf.title : viewingPdf.titleEn}
-                </h3>
-                <button className="materials-btn close" onClick={() => setViewingPdf(null)}>
-                  {t('site.lectures.materials.close')}
-                </button>
-              </div>
-              <div className="pdf-viewer-container">
-                <iframe
-                  src={getPdfUrl(viewingPdf.file)}
-                  title={viewingPdf.title}
-                />
-              </div>
-            </div>
-          )}
         </div>
       </section>
     </>

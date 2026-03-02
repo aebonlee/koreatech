@@ -62,46 +62,35 @@ const Lectures = () => {
               ) : lectures.length === 0 ? (
                 <div className="board-empty">{t('site.lectures.empty')}</div>
               ) : (
-                <div className="lecture-grid">
-                  {lectures.map((lecture) => (
-                    <Link
-                      key={lecture.id}
-                      to={`/lectures/${lecture.id}`}
-                      className="lecture-card"
-                    >
-                      <div className="lecture-card-image">
-                        {lecture.cover_image ? (
-                          <img src={lecture.cover_image} alt={lecture.title} />
-                        ) : (
-                          <div className="lecture-card-placeholder">
-                            <span>{t('site.lectures.weekPrefix')} {lecture.week_number}</span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="lecture-card-body">
-                        <span className="lecture-week-badge">
-                          Week {lecture.week_number}
-                        </span>
-                        <h3 className="lecture-card-title">{lecture.title}</h3>
-                        {lecture.description && (
-                          <p className="lecture-card-desc">{lecture.description}</p>
-                        )}
-                        <div className="lecture-card-footer">
-                          {lecture.tags && lecture.tags.length > 0 && (
-                            <div className="lecture-card-tags">
-                              {lecture.tags.map((tag, i) => (
-                                <span key={i} className="lecture-tag">{tag}</span>
-                              ))}
-                            </div>
-                          )}
-                          <div className="lecture-card-meta">
-                            <span>{formatDate(lecture.created_at)}</span>
-                            <span>{t('site.lectures.views')}: {lecture.views || 0}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
+                <div className="board-table-wrapper">
+                  <table className="board-table">
+                    <thead>
+                      <tr>
+                        <th className="lecture-col-week">{t('site.lectures.weekPrefix')}</th>
+                        <th className="board-col-title">{t('site.lectures.titleLabel')}</th>
+                        <th className="lecture-col-desc">{t('site.lectures.descriptionCol')}</th>
+                        <th className="board-col-date">{t('site.lectures.date')}</th>
+                        <th className="lecture-col-views">{t('site.lectures.views')}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {lectures.map((lecture) => (
+                        <tr key={lecture.id}>
+                          <td className="lecture-col-week">
+                            <span className="lecture-week-badge">
+                              Week {lecture.week_number}
+                            </span>
+                          </td>
+                          <td className="board-col-title">
+                            <Link to={`/lectures/${lecture.id}`}>{lecture.title}</Link>
+                          </td>
+                          <td className="lecture-col-desc">{lecture.description}</td>
+                          <td className="board-col-date">{formatDate(lecture.created_at)}</td>
+                          <td className="lecture-col-views">{lecture.views || 0}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               )}
             </>
