@@ -33,6 +33,16 @@ const site = {
   menuItems: [
     { path: '/', labelKey: 'nav.home' },
     {
+      labelKey: 'site.nav.ct',
+      path: '/ct/weekly-plan',
+      activePath: '/ct',
+      dropdown: [
+        { path: '/ct/weekly-plan', labelKey: 'site.nav.weeklyPlan' },
+        { path: '/ct/syllabus', labelKey: 'site.nav.syllabus' },
+        { path: '/ct/practice-guide', labelKey: 'site.nav.practiceGuide' },
+      ]
+    },
+    {
       labelKey: 'site.nav.python',
       path: '/python',
       activePath: '/python',

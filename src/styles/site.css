@@ -1001,6 +1001,93 @@
   padding: 16px 0;
 }
 
+/* ─── Weekly Plan Table ─── */
+.weekly-plan-table td,
+.weekly-plan-table th {
+  vertical-align: middle;
+}
+
+.weekly-plan-table .exam-row {
+  background: var(--primary-blue-bg);
+  font-weight: 600;
+}
+
+/* ─── Syllabus Info Card ─── */
+.syllabus-info-card {
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 2rem;
+}
+
+.syllabus-info-card h2 {
+  margin-top: 0 !important;
+  border-bottom: none !important;
+}
+
+.syllabus-info-card .lesson-table {
+  margin-bottom: 0;
+}
+
+.syllabus-info-card .lesson-table th {
+  width: 120px;
+  white-space: nowrap;
+}
+
+/* ─── Practice Guide Grid ─── */
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.practice-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.practice-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-blue);
+}
+
+.practice-card.exam-card {
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+}
+
+.practice-card-header {
+  padding: 20px 20px 12px;
+}
+
+.practice-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 8px 0 4px;
+}
+
+.practice-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.practice-task-list {
+  padding: 0 20px 20px 36px;
+  margin: 0;
+}
+
+.practice-task-list li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
 /* ─── Admin Page ─── */
 .admin-stats {
   display: grid;
@@ -1080,10 +1167,18 @@
   .lecture-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .practice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1355,6 +1450,29 @@
 
 [data-theme="dark"] .goals-list li {
   border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .weekly-plan-table .exam-row {
+  background: rgba(0, 70, 200, 0.15);
+}
+
+[data-theme="dark"] .syllabus-info-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .practice-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .practice-card:hover {
+  border-color: var(--primary-blue);
+}
+
+[data-theme="dark"] .practice-card.exam-card {
+  background: rgba(0, 70, 200, 0.1);
+  border-color: var(--primary-blue);
 }
 
 [data-theme="dark"] .admin-stat-card {

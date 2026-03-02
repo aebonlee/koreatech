@@ -6,6 +6,9 @@ import Footer from '../components/layout/Footer';
 
 // 페이지 lazy import
 const Home = lazy(() => import('../pages/Home'));
+const WeeklyPlan = lazy(() => import('../pages/WeeklyPlan'));
+const Syllabus = lazy(() => import('../pages/Syllabus'));
+const PracticeGuide = lazy(() => import('../pages/PracticeGuide'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const ForgotPassword = lazy(() => import('../pages/ForgotPassword'));
@@ -45,6 +48,11 @@ const PublicLayout = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/mypage" element={<AuthGuard><MyPage /></AuthGuard>} />
+
+            {/* Computational Thinking */}
+            <Route path="/ct/weekly-plan" element={<WeeklyPlan />} />
+            <Route path="/ct/syllabus" element={<Syllabus />} />
+            <Route path="/ct/practice-guide" element={<PracticeGuide />} />
 
             {/* Python Lessons */}
             <Route path="/python" element={<PythonLesson />} />

@@ -86,6 +86,10 @@ export const translations = {
     // ─── 사이트 전용 키 ───
     site: {
       nav: {
+        ct: '컴퓨팅 사고',
+        weeklyPlan: '주차별 강의계획',
+        syllabus: '강의계획서',
+        practiceGuide: '실습안내',
         python: '파이썬',
         pythonBasics: '파이썬 기초',
         pythonControl: '제어문',
@@ -93,6 +97,25 @@ export const translations = {
         pythonData: '자료구조',
         lectures: '주차별 강의안',
         board: '게시판'
+      },
+      ct: {
+        weeklyPlan: {
+          title: '주차별 강의계획',
+          subtitle: '15주차 이론(2시간) + 실습(2시간) 강의 계획',
+          week: '주차',
+          weekUnit: '주차',
+          theory: '이론',
+          practice: '실습',
+          hours: '시간',
+        },
+        syllabus: {
+          title: '강의계획서',
+          subtitle: '컴퓨팅 사고 교과목 강의계획서',
+        },
+        practiceGuide: {
+          title: '실습안내',
+          subtitle: '15주차 실습 내역 및 과제 안내',
+        },
       },
       home: {
         title: 'KoreaTech 컴퓨팅 사고',
@@ -312,6 +335,10 @@ export const translations = {
     // ─── Site-specific keys ───
     site: {
       nav: {
+        ct: 'Comp. Thinking',
+        weeklyPlan: 'Weekly Plan',
+        syllabus: 'Syllabus',
+        practiceGuide: 'Practice Guide',
         python: 'Python',
         pythonBasics: 'Python Basics',
         pythonControl: 'Control Flow',
@@ -319,6 +346,25 @@ export const translations = {
         pythonData: 'Data Structures',
         lectures: 'Lectures',
         board: 'Board'
+      },
+      ct: {
+        weeklyPlan: {
+          title: 'Weekly Lecture Plan',
+          subtitle: '15-week plan: Theory (2hrs) + Practice (2hrs)',
+          week: 'Week',
+          weekUnit: 'Week',
+          theory: 'Theory',
+          practice: 'Practice',
+          hours: 'hrs',
+        },
+        syllabus: {
+          title: 'Syllabus',
+          subtitle: 'Computational Thinking Course Syllabus',
+        },
+        practiceGuide: {
+          title: 'Practice Guide',
+          subtitle: '15-week practice details and assignments',
+        },
       },
       home: {
         title: 'KoreaTech Computational Thinking',
