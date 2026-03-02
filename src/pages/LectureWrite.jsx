@@ -44,7 +44,7 @@ const LectureWrite = () => {
         title: data.title || '',
         description: data.description || '',
         slide_url: data.slide_url || '',
-        file_url: data.file_url || '',
+        file_url: (data.file_url || '').replace(/^\/pdf\//, ''),
         cover_image: data.cover_image || '',
         content: data.content || '',
         tags: (data.tags || []).join(', '),
@@ -84,7 +84,7 @@ const LectureWrite = () => {
         title: form.title.trim(),
         description: form.description.trim(),
         slide_url: form.slide_url.trim(),
-        file_url: form.file_url.trim(),
+        file_url: form.file_url.trim() ? (form.file_url.trim().startsWith('http') ? form.file_url.trim() : `/pdf/${form.file_url.trim()}`) : '',
         cover_image: form.cover_image.trim(),
         content: form.content.trim(),
         tags: tagsArray,
@@ -181,12 +181,16 @@ const LectureWrite = () => {
 
             <div className="form-group">
               <label>{t('site.lectures.fileUrl')}</label>
-              <input
-                type="url"
-                value={form.file_url}
-                onChange={(e) => handleChange('file_url', e.target.value)}
-                placeholder={t('site.lectures.fileUrlPlaceholder')}
-              />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
+                <span style={{ padding: '10px 12px', background: 'var(--bg-light-gray)', border: '1px solid var(--border-light)', borderRight: 'none', borderRadius: 'var(--radius-md) 0 0 var(--radius-md)', fontSize: '0.9rem', color: 'var(--text-light)', whiteSpace: 'nowrap' }}>/pdf/</span>
+                <input
+                  type="text"
+                  value={form.file_url}
+                  onChange={(e) => handleChange('file_url', e.target.value)}
+                  placeholder={t('site.lectures.fileUrlPlaceholder')}
+                  style={{ borderRadius: '0 var(--radius-md) var(--radius-md) 0' }}
+                />
+              </div>
             </div>
 
             <div className="form-group">
