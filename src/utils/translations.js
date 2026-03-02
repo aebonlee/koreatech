@@ -1,0 +1,329 @@
+export const translations = {
+  ko: {
+    nav: {
+      home: '홈',
+    },
+    footer: {
+      tagline: '한국기술교육대학교 컴퓨팅 사고 교육 사이트',
+      companyInfo: '회사 정보',
+      contact: '연락처',
+      quickLinks: '바로가기'
+    },
+    auth: {
+      login: '로그인',
+      logout: '로그아웃',
+      signUp: '회원가입',
+      loginTitle: '로그인',
+      loginSubtitle: '계정에 로그인하세요',
+      signUpTitle: '회원가입',
+      signUpSubtitle: '새 계정을 만들어보세요',
+      email: '이메일',
+      emailPlaceholder: 'email@example.com',
+      password: '비밀번호',
+      passwordPlaceholder: '비밀번호를 입력하세요',
+      passwordConfirm: '비밀번호 확인',
+      passwordConfirmPlaceholder: '비밀번호를 다시 입력하세요',
+      displayName: '이름',
+      displayNamePlaceholder: '표시될 이름을 입력하세요',
+      or: '또는',
+      noAccount: '계정이 없으신가요?',
+      hasAccount: '이미 계정이 있으신가요?',
+      loginError: '로그인에 실패했습니다.',
+      signUpError: '회원가입에 실패했습니다.',
+      passwordMismatch: '비밀번호가 일치하지 않습니다.',
+      passwordTooShort: '비밀번호는 6자 이상이어야 합니다.',
+      loggingIn: '로그인 중...',
+      signingUp: '가입 중...',
+      signUpSuccess: '회원가입이 완료되었습니다!',
+      checkEmail: '이메일을 확인하여 계정을 활성화해주세요.',
+      goToLogin: '로그인 페이지로',
+      myPage: '마이페이지',
+      editProfile: '프로필 수정',
+      profileUpdated: '프로필이 수정되었습니다.',
+      save: '저장',
+      saving: '저장 중...',
+      noName: '이름 없음',
+      back: '뒤로',
+      loginWith: '로그인:',
+      emailAccount: '이메일 계정',
+      admin: '관리자',
+      forgotPassword: '비밀번호를 잊으셨나요?',
+      forgotPasswordTitle: '비밀번호 재설정',
+      forgotPasswordSubtitle: '가입하신 이메일을 입력하시면 재설정 링크를 보내드립니다.',
+      sendResetLink: '재설정 링크 보내기',
+      sending: '전송 중...',
+      resetEmailSent: '비밀번호 재설정 이메일이 전송되었습니다.',
+      checkEmailForReset: '이메일의 링크를 클릭하여 비밀번호를 재설정하세요.',
+      backToLogin: '로그인으로 돌아가기'
+    },
+    search: {
+      placeholder: '검색어를 입력하세요...',
+      searching: '검색 중...',
+      noResults: '검색 결과가 없습니다.',
+      hint: '게시판 글을 검색합니다.',
+      board: '게시판'
+    },
+    comments: {
+      title: '댓글',
+      loading: '댓글 로딩 중...',
+      empty: '아직 댓글이 없습니다.',
+      placeholder: '댓글을 입력하세요...',
+      submit: '댓글 작성',
+      submitting: '작성 중...',
+      delete: '삭제',
+      deleteConfirm: '댓글을 삭제하시겠습니까?',
+      loginRequired: '댓글을 작성하려면 로그인이 필요합니다.'
+    },
+    community: {
+      cancel: '취소',
+      loading: '로딩 중...'
+    },
+    common: {
+      learnMore: '자세히 보기',
+      contactUs: '문의하기'
+    },
+
+    // ─── 사이트 전용 키 ───
+    site: {
+      nav: {
+        python: '파이썬',
+        pythonBasics: '파이썬 기초',
+        pythonControl: '제어문',
+        pythonFunctions: '함수',
+        pythonData: '자료구조',
+        board: '게시판'
+      },
+      home: {
+        title: 'KoreaTech 컴퓨팅 사고',
+        subtitle: '파이썬으로 시작하는 컴퓨팅 사고',
+        heroDesc: '한국기술교육대학교 컴퓨팅 사고 수업에 오신 것을 환영합니다. 파이썬 프로그래밍 기초부터 문제해결 능력까지, 단계별로 학습해보세요.',
+        startLearning: '학습 시작하기',
+        goToBoard: '게시판 바로가기',
+        whatIsCT: '컴퓨팅 사고란?',
+        ctDescription: '컴퓨팅 사고(Computational Thinking)는 컴퓨터 과학의 기본 개념을 활용하여 문제를 분석하고 해결하는 사고 방식입니다. 프로그래밍을 통해 논리적 사고, 패턴 인식, 추상화, 알고리즘 설계 능력을 키울 수 있습니다.',
+        learningGoals: '학습 목표',
+        goal1: '파이썬 기본 문법 이해',
+        goal2: '조건문과 반복문을 활용한 프로그램 작성',
+        goal3: '함수를 이용한 코드 구조화',
+        goal4: '자료구조를 활용한 데이터 처리',
+        curriculum: '커리큘럼',
+        curriculumDesc: '체계적인 단계별 학습 과정을 통해 프로그래밍 역량을 키워보세요.'
+      },
+      python: {
+        title: '파이썬 강의',
+        subtitle: '단계별로 파이썬을 학습합니다',
+        basics: {
+          title: '파이썬 기초',
+          desc: '파이썬 소개, 설치, 변수, 자료형, 입출력',
+          topics: '변수 · 자료형 · print() · input()'
+        },
+        control: {
+          title: '제어문',
+          desc: '조건문과 반복문으로 흐름 제어하기',
+          topics: 'if/elif/else · for · while · break/continue'
+        },
+        functions: {
+          title: '함수',
+          desc: '함수 정의, 매개변수, 반환값, 람다',
+          topics: 'def · return · lambda · 스코프'
+        },
+        data: {
+          title: '자료구조',
+          desc: '리스트, 튜플, 딕셔너리, 집합',
+          topics: 'list · tuple · dict · set'
+        }
+      },
+      board: {
+        title: '게시판',
+        subtitle: '질문, 공지, 자유 게시판',
+        write: '글쓰기',
+        category: '카테고리',
+        all: '전체',
+        notice: '공지',
+        question: '질문',
+        free: '자유',
+        titleLabel: '제목',
+        content: '내용',
+        author: '작성자',
+        date: '작성일',
+        views: '조회수',
+        noPost: '게시글이 없습니다.',
+        notConfigured: 'Supabase가 설정되지 않았습니다. .env 파일을 확인해주세요.',
+        writeTitle: '게시글 작성',
+        titlePlaceholder: '제목을 입력하세요',
+        contentPlaceholder: '내용을 입력하세요',
+        submit: '등록',
+        submitting: '등록 중...',
+        cancel: '취소',
+        delete: '삭제',
+        deleteConfirm: '정말 삭제하시겠습니까?',
+        backToList: '목록으로',
+        loginRequired: '글을 작성하려면 로그인이 필요합니다.'
+      }
+    }
+  },
+
+  en: {
+    nav: {
+      home: 'Home',
+    },
+    footer: {
+      tagline: 'KoreaTech Computational Thinking Education Site',
+      companyInfo: 'Company Info',
+      contact: 'Contact',
+      quickLinks: 'Quick Links'
+    },
+    auth: {
+      login: 'Log In',
+      logout: 'Log Out',
+      signUp: 'Sign Up',
+      loginTitle: 'Log In',
+      loginSubtitle: 'Sign in to your account',
+      signUpTitle: 'Sign Up',
+      signUpSubtitle: 'Create a new account',
+      email: 'Email',
+      emailPlaceholder: 'email@example.com',
+      password: 'Password',
+      passwordPlaceholder: 'Enter your password',
+      passwordConfirm: 'Confirm Password',
+      passwordConfirmPlaceholder: 'Re-enter your password',
+      displayName: 'Name',
+      displayNamePlaceholder: 'Enter your display name',
+      or: 'or',
+      noAccount: "Don't have an account?",
+      hasAccount: 'Already have an account?',
+      loginError: 'Login failed.',
+      signUpError: 'Sign up failed.',
+      passwordMismatch: 'Passwords do not match.',
+      passwordTooShort: 'Password must be at least 6 characters.',
+      loggingIn: 'Logging in...',
+      signingUp: 'Signing up...',
+      signUpSuccess: 'Sign up successful!',
+      checkEmail: 'Please check your email to activate your account.',
+      goToLogin: 'Go to Login',
+      myPage: 'My Page',
+      editProfile: 'Edit Profile',
+      profileUpdated: 'Profile updated.',
+      save: 'Save',
+      saving: 'Saving...',
+      noName: 'No name',
+      back: 'Back',
+      loginWith: 'Login:',
+      emailAccount: 'Email account',
+      admin: 'Admin',
+      forgotPassword: 'Forgot password?',
+      forgotPasswordTitle: 'Reset Password',
+      forgotPasswordSubtitle: "Enter your email and we'll send you a reset link.",
+      sendResetLink: 'Send Reset Link',
+      sending: 'Sending...',
+      resetEmailSent: 'Password reset email has been sent.',
+      checkEmailForReset: 'Click the link in the email to reset your password.',
+      backToLogin: 'Back to Login'
+    },
+    search: {
+      placeholder: 'Search...',
+      searching: 'Searching...',
+      noResults: 'No results found.',
+      hint: 'Search board posts.',
+      board: 'Board'
+    },
+    comments: {
+      title: 'Comments',
+      loading: 'Loading comments...',
+      empty: 'No comments yet.',
+      placeholder: 'Write a comment...',
+      submit: 'Post Comment',
+      submitting: 'Posting...',
+      delete: 'Delete',
+      deleteConfirm: 'Are you sure you want to delete this comment?',
+      loginRequired: 'Please log in to leave a comment.'
+    },
+    community: {
+      cancel: 'Cancel',
+      loading: 'Loading...'
+    },
+    common: {
+      learnMore: 'Learn More',
+      contactUs: 'Contact Us'
+    },
+
+    // ─── Site-specific keys ───
+    site: {
+      nav: {
+        python: 'Python',
+        pythonBasics: 'Python Basics',
+        pythonControl: 'Control Flow',
+        pythonFunctions: 'Functions',
+        pythonData: 'Data Structures',
+        board: 'Board'
+      },
+      home: {
+        title: 'KoreaTech Computational Thinking',
+        subtitle: 'Computational Thinking with Python',
+        heroDesc: 'Welcome to the Computational Thinking course at Korea University of Technology and Education. Learn Python programming fundamentals and problem-solving skills step by step.',
+        startLearning: 'Start Learning',
+        goToBoard: 'Go to Board',
+        whatIsCT: 'What is Computational Thinking?',
+        ctDescription: 'Computational Thinking is a problem-solving approach that uses fundamental concepts from computer science. Through programming, you can develop logical thinking, pattern recognition, abstraction, and algorithm design skills.',
+        learningGoals: 'Learning Goals',
+        goal1: 'Understand Python basic syntax',
+        goal2: 'Write programs using conditionals and loops',
+        goal3: 'Structure code with functions',
+        goal4: 'Process data with data structures',
+        curriculum: 'Curriculum',
+        curriculumDesc: 'Build your programming skills through our systematic step-by-step learning process.'
+      },
+      python: {
+        title: 'Python Lessons',
+        subtitle: 'Learn Python step by step',
+        basics: {
+          title: 'Python Basics',
+          desc: 'Introduction, installation, variables, data types, I/O',
+          topics: 'Variables · Data Types · print() · input()'
+        },
+        control: {
+          title: 'Control Flow',
+          desc: 'Control program flow with conditionals and loops',
+          topics: 'if/elif/else · for · while · break/continue'
+        },
+        functions: {
+          title: 'Functions',
+          desc: 'Function definition, parameters, return values, lambda',
+          topics: 'def · return · lambda · Scope'
+        },
+        data: {
+          title: 'Data Structures',
+          desc: 'Lists, tuples, dictionaries, sets',
+          topics: 'list · tuple · dict · set'
+        }
+      },
+      board: {
+        title: 'Board',
+        subtitle: 'Questions, Notices, Free Discussion',
+        write: 'Write',
+        category: 'Category',
+        all: 'All',
+        notice: 'Notice',
+        question: 'Question',
+        free: 'Free',
+        titleLabel: 'Title',
+        content: 'Content',
+        author: 'Author',
+        date: 'Date',
+        views: 'Views',
+        noPost: 'No posts found.',
+        notConfigured: 'Supabase is not configured. Please check your .env file.',
+        writeTitle: 'Write Post',
+        titlePlaceholder: 'Enter title',
+        contentPlaceholder: 'Enter content',
+        submit: 'Submit',
+        submitting: 'Submitting...',
+        cancel: 'Cancel',
+        delete: 'Delete',
+        deleteConfirm: 'Are you sure you want to delete this post?',
+        backToList: 'Back to List',
+        loginRequired: 'Please log in to write a post.'
+      }
+    }
+  }
+};
