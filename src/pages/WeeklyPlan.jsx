@@ -2,21 +2,21 @@ import { useLanguage } from '../contexts/LanguageContext';
 import SEOHead from '../components/SEOHead';
 
 const weeklyData = [
-  { week: 1,  theory: '컴퓨팅 사고 개요, 강의 소개', practice: '파이썬 설치 및 개발환경 설정 (IDLE, VS Code)' },
-  { week: 2,  theory: '변수와 자료형 (int, float, str, bool)', practice: '변수 선언, 형변환, 기본 연산 실습' },
-  { week: 3,  theory: '입출력 함수 (print, input, f-string)', practice: '사용자 입력 프로그램 작성 실습' },
-  { week: 4,  theory: '조건문 (if, elif, else)', practice: '성적 판별기, 짝수/홀수 판별 프로그램' },
-  { week: 5,  theory: '반복문 (for, while)', practice: '구구단, 별 찍기, 합계 계산 프로그램' },
-  { week: 6,  theory: '반복문 심화 (break, continue, 중첩 반복)', practice: '패턴 출력, 소수 판별 프로그램' },
-  { week: 7,  theory: '리스트와 튜플', practice: '리스트 조작, 정렬, 검색 실습' },
-  { week: 8,  theory: '중간고사', practice: '중간고사' },
-  { week: 9,  theory: '딕셔너리와 집합', practice: '단어 빈도수 분석, 집합 연산 실습' },
-  { week: 10, theory: '함수 정의와 호출', practice: '계산기 함수, 온도 변환 함수 작성' },
-  { week: 11, theory: '함수 심화 (매개변수, 반환값, 람다)', practice: '재귀 함수, 정렬 알고리즘 구현' },
-  { week: 12, theory: '파일 입출력', practice: '텍스트 파일 읽기/쓰기, CSV 처리' },
-  { week: 13, theory: '모듈과 패키지 활용', practice: 'random, math, datetime 모듈 활용 실습' },
-  { week: 14, theory: '종합 프로젝트 안내 및 실습', practice: '미니 프로젝트 구현 (학생 성적 관리 시스템)' },
-  { week: 15, theory: '기말고사', practice: '기말고사' },
+  { week: 1,  theory: '교과목 소개 및 운영 방법', practice: '파이썬 및 실습환경 안내' },
+  { week: 2,  theory: '컴퓨팅적 사고 개념', practice: '입출력과 변수 (Input & Output)' },
+  { week: 3,  theory: '정보와 데이터 (부호화)', practice: 'Data Type(정수, 소수, 문자)와 산술연산' },
+  { week: 4,  theory: '문제 인식과 정의 (PDC 작성방법)', practice: '입력-처리-출력 개념' },
+  { week: 5,  theory: '추상화 (핵심아이디어 - 패턴 & 규칙)', practice: 'Turtle (비슷한 것 끼리 기능 단위 묶기 def)' },
+  { week: 6,  theory: '논리적으로 사고하기 (순서도)', practice: 'Flowgorithm 활용 순서도 그리기' },
+  { week: 7,  theory: '사고의 흐름 (조건)', practice: 'IF 조건문' },
+  { week: 8,  theory: '사고의 흐름 (반복)', practice: 'While 조건반복, For 횟수반복' },
+  { week: 9,  theory: '알고리즘적 사고 (정렬과 탐색)', practice: '함수와 매개변수' },
+  { week: 10, theory: '소프트웨어 오류와 검증 (디버깅)', practice: 'Try-Except' },
+  { week: 11, theory: '정보 모델링 (2차원, 3차원 리스트)', practice: '2차원, 3차원 리스트' },
+  { week: 12, theory: '중간고사', practice: '중간고사' },
+  { week: 13, theory: '총정리 및 기말프로젝트 소개', practice: '생성형 AI 활용 프로젝트 수행' },
+  { week: 14, theory: 'AI와 컴퓨팅 사고', practice: '생성형 AI 활용 프로젝트 수행' },
+  { week: 15, theory: '프로젝트 결과제출 및 평가', practice: '프로젝트 결과제출 및 평가' },
 ];
 
 const WeeklyPlan = () => {
@@ -46,7 +46,7 @@ const WeeklyPlan = () => {
               </thead>
               <tbody>
                 {weeklyData.map((row) => (
-                  <tr key={row.week} className={row.week === 8 || row.week === 15 ? 'exam-row' : ''}>
+                  <tr key={row.week} className={row.week === 12 || row.week === 15 ? 'exam-row' : ''}>
                     <td style={{ textAlign: 'center', fontWeight: 600 }}>{row.week}</td>
                     <td>{row.theory}</td>
                     <td>{row.practice}</td>
