@@ -90,11 +90,11 @@ export const translations = {
         weeklyPlan: '주차별 강의계획',
         syllabus: '강의계획서',
         practiceGuide: '실습안내',
-        python: '파이썬',
-        pythonBasics: '파이썬 기초',
-        pythonControl: '제어문',
-        pythonFunctions: '함수',
-        pythonData: '자료구조',
+        python: '파이썬 실습',
+        pySetup: '환경설정 (1-3주차)',
+        pyIPO: '사고와 설계 (4-6주차)',
+        pyCondition: '조건문·반복문 (7-8주차)',
+        pyFunction: '함수·리스트 (9-11주차)',
         lectures: '주차별 강의안',
         board: '게시판'
       },
@@ -134,28 +134,8 @@ export const translations = {
         curriculumDesc: '체계적인 단계별 학습 과정을 통해 프로그래밍 역량을 키워보세요.'
       },
       python: {
-        title: '파이썬 강의',
-        subtitle: '단계별로 파이썬을 학습합니다',
-        basics: {
-          title: '파이썬 기초',
-          desc: '파이썬 소개, 설치, 변수, 자료형, 입출력',
-          topics: '변수 · 자료형 · print() · input()'
-        },
-        control: {
-          title: '제어문',
-          desc: '조건문과 반복문으로 흐름 제어하기',
-          topics: 'if/elif/else · for · while · break/continue'
-        },
-        functions: {
-          title: '함수',
-          desc: '함수 정의, 매개변수, 반환값, 람다',
-          topics: 'def · return · lambda · 스코프'
-        },
-        data: {
-          title: '자료구조',
-          desc: '리스트, 튜플, 딕셔너리, 집합',
-          topics: 'list · tuple · dict · set'
-        }
+        title: '파이썬 실습',
+        subtitle: '주차별 실습 내용을 학습합니다',
       },
       lectures: {
         title: '주차별 강의안',
@@ -339,11 +319,11 @@ export const translations = {
         weeklyPlan: 'Weekly Plan',
         syllabus: 'Syllabus',
         practiceGuide: 'Practice Guide',
-        python: 'Python',
-        pythonBasics: 'Python Basics',
-        pythonControl: 'Control Flow',
-        pythonFunctions: 'Functions',
-        pythonData: 'Data Structures',
+        python: 'Python Lab',
+        pySetup: 'Setup (Week 1-3)',
+        pyIPO: 'Design (Week 4-6)',
+        pyCondition: 'Control Flow (Week 7-8)',
+        pyFunction: 'Functions (Week 9-11)',
         lectures: 'Lectures',
         board: 'Board'
       },
@@ -383,28 +363,8 @@ export const translations = {
         curriculumDesc: 'Build your programming skills through our systematic step-by-step learning process.'
       },
       python: {
-        title: 'Python Lessons',
-        subtitle: 'Learn Python step by step',
-        basics: {
-          title: 'Python Basics',
-          desc: 'Introduction, installation, variables, data types, I/O',
-          topics: 'Variables · Data Types · print() · input()'
-        },
-        control: {
-          title: 'Control Flow',
-          desc: 'Control program flow with conditionals and loops',
-          topics: 'if/elif/else · for · while · break/continue'
-        },
-        functions: {
-          title: 'Functions',
-          desc: 'Function definition, parameters, return values, lambda',
-          topics: 'def · return · lambda · Scope'
-        },
-        data: {
-          title: 'Data Structures',
-          desc: 'Lists, tuples, dictionaries, sets',
-          topics: 'list · tuple · dict · set'
-        }
+        title: 'Python Lab',
+        subtitle: 'Weekly practice content',
       },
       lectures: {
         title: 'Weekly Lectures',

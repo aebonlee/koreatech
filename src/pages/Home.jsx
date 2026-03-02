@@ -9,10 +9,10 @@ const Home = () => {
   useAOS();
 
   const chapters = [
-    { path: '/python/basics', key: 'basics', icon: '📘', step: 'Step 1' },
-    { path: '/python/control', key: 'control', icon: '🔀', step: 'Step 2' },
-    { path: '/python/functions', key: 'functions', icon: '⚙️', step: 'Step 3' },
-    { path: '/python/data', key: 'data', icon: '📊', step: 'Step 4' },
+    { path: '/python/setup',     title: '실습환경 & 기초',     desc: '파이썬 설치, 입출력, 자료형, 산술연산', icon: '🖥️', step: '1-3주차' },
+    { path: '/python/ipo',       title: '사고와 설계',          desc: 'PDC, Turtle, Flowgorithm 순서도',      icon: '📐', step: '4-6주차' },
+    { path: '/python/condition', title: '조건문 · 반복문',      desc: 'if/elif/else, while, for, break',     icon: '🔀', step: '7-8주차' },
+    { path: '/python/function',  title: '함수 · 예외 · 리스트', desc: '함수, Try-Except, 다차원 리스트',      icon: '⚙️', step: '9-11주차' },
   ];
 
   return (
@@ -29,7 +29,7 @@ const Home = () => {
             <h1 className="hero-title">{t('site.home.subtitle')}</h1>
             <p className="hero-description">{t('site.home.heroDesc')}</p>
             <div className="hero-actions">
-              <Link to="/python/basics" className="hero-btn primary">{t('site.home.startLearning')}</Link>
+              <Link to="/python" className="hero-btn primary">{t('site.home.startLearning')}</Link>
               <Link to="/board" className="hero-btn secondary">{t('site.home.goToBoard')}</Link>
             </div>
           </div>
@@ -64,16 +64,15 @@ const Home = () => {
             {chapters.map((ch, i) => (
               <Link
                 to={ch.path}
-                key={ch.key}
+                key={ch.path}
                 className="curriculum-card"
                 data-aos="fade-up"
                 data-aos-delay={i * 100}
               >
                 <span className="curriculum-step">{ch.step}</span>
                 <span className="curriculum-icon">{ch.icon}</span>
-                <h3 className="curriculum-card-title">{t(`site.python.${ch.key}.title`)}</h3>
-                <p className="curriculum-card-desc">{t(`site.python.${ch.key}.desc`)}</p>
-                <span className="curriculum-topics">{t(`site.python.${ch.key}.topics`)}</span>
+                <h3 className="curriculum-card-title">{ch.title}</h3>
+                <p className="curriculum-card-desc">{ch.desc}</p>
               </Link>
             ))}
           </div>

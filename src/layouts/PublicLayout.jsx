@@ -14,10 +14,17 @@ const Register = lazy(() => import('../pages/Register'));
 const ForgotPassword = lazy(() => import('../pages/ForgotPassword'));
 const MyPage = lazy(() => import('../pages/MyPage'));
 const PythonLesson = lazy(() => import('../pages/PythonLesson'));
-const PythonBasics = lazy(() => import('../pages/PythonBasics'));
-const PythonControl = lazy(() => import('../pages/PythonControl'));
-const PythonFunctions = lazy(() => import('../pages/PythonFunctions'));
-const PythonData = lazy(() => import('../pages/PythonData'));
+const PythonWeek1 = lazy(() => import('../pages/PythonWeek1'));
+const PythonWeek2 = lazy(() => import('../pages/PythonWeek2'));
+const PythonWeek3 = lazy(() => import('../pages/PythonWeek3'));
+const PythonWeek4 = lazy(() => import('../pages/PythonWeek4'));
+const PythonWeek5 = lazy(() => import('../pages/PythonWeek5'));
+const PythonWeek6 = lazy(() => import('../pages/PythonWeek6'));
+const PythonWeek7 = lazy(() => import('../pages/PythonWeek7'));
+const PythonWeek8 = lazy(() => import('../pages/PythonWeek8'));
+const PythonWeek9 = lazy(() => import('../pages/PythonWeek9'));
+const PythonWeek10 = lazy(() => import('../pages/PythonWeek10'));
+const PythonWeek11 = lazy(() => import('../pages/PythonWeek11'));
 const Board = lazy(() => import('../pages/Board'));
 const BoardDetail = lazy(() => import('../pages/BoardDetail'));
 const BoardWrite = lazy(() => import('../pages/BoardWrite'));
@@ -56,10 +63,17 @@ const PublicLayout = () => {
 
             {/* Python Lessons */}
             <Route path="/python" element={<PythonLesson />} />
-            <Route path="/python/basics" element={<PythonBasics />} />
-            <Route path="/python/control" element={<PythonControl />} />
-            <Route path="/python/functions" element={<PythonFunctions />} />
-            <Route path="/python/data" element={<PythonData />} />
+            <Route path="/python/setup" element={<PythonWeek1 />} />
+            <Route path="/python/io" element={<PythonWeek2 />} />
+            <Route path="/python/datatype" element={<PythonWeek3 />} />
+            <Route path="/python/ipo" element={<PythonWeek4 />} />
+            <Route path="/python/turtle" element={<PythonWeek5 />} />
+            <Route path="/python/flowchart" element={<PythonWeek6 />} />
+            <Route path="/python/condition" element={<PythonWeek7 />} />
+            <Route path="/python/loop" element={<PythonWeek8 />} />
+            <Route path="/python/function" element={<PythonWeek9 />} />
+            <Route path="/python/exception" element={<PythonWeek10 />} />
+            <Route path="/python/list" element={<PythonWeek11 />} />
 
             {/* Lectures */}
             <Route path="/lectures" element={<Lectures />} />

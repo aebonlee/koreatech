@@ -47,10 +47,10 @@ const site = {
       path: '/python',
       activePath: '/python',
       dropdown: [
-        { path: '/python/basics', labelKey: 'site.nav.pythonBasics' },
-        { path: '/python/control', labelKey: 'site.nav.pythonControl' },
-        { path: '/python/functions', labelKey: 'site.nav.pythonFunctions' },
-        { path: '/python/data', labelKey: 'site.nav.pythonData' }
+        { path: '/python/setup', labelKey: 'site.nav.pySetup' },
+        { path: '/python/ipo', labelKey: 'site.nav.pyIPO' },
+        { path: '/python/condition', labelKey: 'site.nav.pyCondition' },
+        { path: '/python/function', labelKey: 'site.nav.pyFunction' },
       ]
     },
     { path: '/lectures', labelKey: 'site.nav.lectures', activePath: '/lectures' },
