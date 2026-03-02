@@ -83,7 +83,7 @@ const PublicLayout = () => {
 
             {/* Lectures */}
             <Route path="/lectures/materials" element={<LectureMaterials />} />
-            <Route path="/lectures" element={<Lectures />} />
+            <Route path="/lectures" element={<LectureMaterials />} />
             <Route path="/lectures/write" element={<AuthGuard><LectureWrite /></AuthGuard>} />
             <Route path="/lectures/edit/:id" element={<AuthGuard><LectureWrite /></AuthGuard>} />
             <Route path="/lectures/:id" element={<LectureDetail />} />
