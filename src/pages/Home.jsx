@@ -9,10 +9,17 @@ const Home = () => {
   useAOS();
 
   const chapters = [
-    { path: '/python/setup',     title: '실습환경 & 기초',     desc: '파이썬 설치, 입출력, 자료형, 산술연산', icon: '🖥️', step: '1-3주차' },
-    { path: '/python/ipo',       title: '사고와 설계',          desc: 'PDC, Turtle, Flowgorithm 순서도',      icon: '📐', step: '4-6주차' },
-    { path: '/python/condition', title: '조건문 · 반복문',      desc: 'if/elif/else, while, for, break',     icon: '🔀', step: '7-8주차' },
-    { path: '/python/function',  title: '함수 · 예외 · 리스트', desc: '함수, Try-Except, 다차원 리스트',      icon: '⚙️', step: '9-11주차' },
+    { path: '/python/setup',     title: '실습환경 구축',           desc: 'Python 설치, IDLE, VS Code 설정',       icon: '🖥️', step: '1주차' },
+    { path: '/python/io',        title: '입출력과 변수',           desc: 'print(), input(), 변수, f-string',      icon: '⌨️', step: '2주차' },
+    { path: '/python/datatype',  title: '자료형과 연산',           desc: '정수, 소수, 문자, 형변환, 연산자',        icon: '🔢', step: '3주차' },
+    { path: '/python/ipo',       title: 'IPO와 PDC',             desc: '입력-처리-출력, 문제정의차트',            icon: '📋', step: '4주차' },
+    { path: '/python/turtle',    title: '터틀 그래픽',            desc: 'Turtle 그래픽, 함수(def) 기초',          icon: '🐢', step: '5주차' },
+    { path: '/python/flowchart', title: '순서도와 알고리즘',       desc: '논리적 사고, Flowgorithm 활용',          icon: '📐', step: '6주차' },
+    { path: '/python/condition', title: 'IF 조건문',              desc: 'if, elif, else, 비교/논리 연산자',       icon: '🔀', step: '7주차' },
+    { path: '/python/loop',      title: '반복문',                 desc: 'while, for, break, continue',          icon: '🔁', step: '8주차' },
+    { path: '/python/function',  title: '함수와 매개변수',         desc: 'def, 매개변수, return, 스코프',          icon: '⚙️', step: '9주차' },
+    { path: '/python/exception', title: '예외 처리',              desc: '오류 유형, try-except-finally',          icon: '🛡️', step: '10주차' },
+    { path: '/python/list',      title: '다차원 리스트',           desc: '2차원/3차원 리스트, 리스트 컴프리헨션',    icon: '📊', step: '11주차' },
   ];
 
   return (

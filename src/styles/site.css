@@ -333,6 +333,37 @@
   color: var(--text-secondary);
 }
 
+/* ─── Callout Box ─── */
+.callout-box {
+  background: #f0f9ff;
+  border-left: 4px solid var(--primary-blue);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin: 1.5rem 0;
+}
+
+.callout-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 8px;
+}
+
+.callout-box ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.callout-box li {
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.callout-box p {
+  margin: 0.3rem 0;
+  color: var(--text-primary);
+}
+
 /* ─── Exercise Box ─── */
 .exercise-box {
   background: var(--primary-blue-bg);
@@ -1313,6 +1344,11 @@
 [data-theme="dark"] .lesson-table td,
 [data-theme="dark"] .lesson-table th {
   border-color: #374151;
+}
+
+[data-theme="dark"] .callout-box {
+  background: rgba(0, 70, 200, 0.08);
+  border-color: var(--primary-blue);
 }
 
 [data-theme="dark"] .exercise-box {

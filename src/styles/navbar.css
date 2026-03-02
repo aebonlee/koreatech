@@ -94,6 +94,8 @@
     top: 100%;
     left: 0;
     min-width: 220px;
+    max-height: 70vh;
+    overflow-y: auto;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -101,7 +103,7 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     list-style: none;
-    padding: 8px 0;
+    padding: 6px 0;
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
@@ -122,13 +124,14 @@
 
 .dropdown-menu li a {
     display: block;
-    padding: 12px 20px;
+    padding: 9px 20px;
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.2s ease;
     border-radius: 4px;
     margin: 0 4px;
+    white-space: nowrap;
 }
 
 .dropdown-menu li a:hover {
