@@ -3,18 +3,18 @@ import { useLanguage } from '../contexts/LanguageContext';
 import SEOHead from '../components/SEOHead';
 
 const PDF_LIST = [
-  { week: 1, file: 'week01.pdf', title: '컴퓨팅 사고 개요', titleEn: 'Introduction to CT' },
-  { week: 2, file: 'week02.pdf', title: '입출력과 변수', titleEn: 'I/O & Variables' },
-  { week: 3, file: 'week03.pdf', title: '자료형과 연산', titleEn: 'Data Types & Operations' },
-  { week: 4, file: 'week04.pdf', title: 'IPO와 PDC', titleEn: 'IPO & PDC' },
-  { week: 5, file: 'week05.pdf', title: '터틀 그래픽', titleEn: 'Turtle Graphics' },
-  { week: 6, file: 'week06.pdf', title: '순서도', titleEn: 'Flowchart' },
-  { week: 7, file: 'week07.pdf', title: 'IF 조건문', titleEn: 'Conditionals' },
-  { week: 8, file: 'week08.pdf', title: '반복문', titleEn: 'Loops' },
-  { week: 9, file: 'week09.pdf', title: '함수', titleEn: 'Functions' },
-  { week: 10, file: 'week10.pdf', title: '예외처리', titleEn: 'Exceptions' },
-  { week: 11, file: 'week11.pdf', title: '리스트', titleEn: 'Lists' },
-  { week: 12, file: 'week12.pdf', title: '종합 정리', titleEn: 'Review' },
+  { week: 1, file: 'week01.pdf', title: '입력과 출력 (변수, print, input)', titleEn: 'Input & Output (Variables, print, input)' },
+  { week: 2, file: 'week02.pdf', title: '데이터 연산 (계산기 만들기)', titleEn: 'Data Operations (Building a Calculator)' },
+  { week: 3, file: 'week03.pdf', title: '데이터 표현 및 조작 (리스트)', titleEn: 'Data Representation & Manipulation (Lists)' },
+  { week: 4, file: 'week04.pdf', title: '문제 정의와 핵심아이디어', titleEn: 'Problem Definition & Key Ideas' },
+  { week: 5, file: 'week05.pdf', title: '컴퓨터로 이해하기 (터틀 그래픽)', titleEn: 'Understanding with Computers (Turtle Graphics)' },
+  { week: 6, file: 'week06.pdf', title: '기능 단위 분리 (함수)', titleEn: 'Modular Design (Functions)' },
+  { week: 7, file: 'week07.pdf', title: '알고리즘 표현 (순서도)', titleEn: 'Algorithm Representation (Flowchart)' },
+  { week: 8, file: 'week08.pdf', title: '조건문 실습 (if-else)', titleEn: 'Conditionals Practice (if-else)' },
+  { week: 9, file: 'week09.pdf', title: '반복문 실습 (while, for)', titleEn: 'Loops Practice (while, for)' },
+  { week: 10, file: 'week10.pdf', title: '알고리즘 심화 (정렬 등)', titleEn: 'Advanced Algorithms (Sorting, etc.)' },
+  { week: 11, file: 'week11.pdf', title: '에러와 디버깅', titleEn: 'Errors & Debugging' },
+  { week: 12, file: 'week12.pdf', title: '프로젝트 (포트폴리오 만들기)', titleEn: 'Project (Building a Portfolio)' },
 ];
 
 const LectureMaterials = () => {
