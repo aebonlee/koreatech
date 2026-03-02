@@ -23,12 +23,12 @@ const LectureMaterials = () => {
 
   return (
     <>
-      <SEOHead title={t('site.lectures.materials.title')} path="/lectures/materials" />
+      <SEOHead title={t('site.lectures.title')} path="/lectures" />
 
       <section className="page-header">
         <div className="container">
-          <h1>{t('site.lectures.materials.title')}</h1>
-          <p>{t('site.lectures.materials.subtitle')}</p>
+          <h1>{t('site.lectures.title')}</h1>
+          <p>{t('site.lectures.subtitle')}</p>
         </div>
       </section>
 
