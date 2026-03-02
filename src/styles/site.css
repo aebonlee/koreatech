@@ -20,6 +20,28 @@
   font-size: 1.05rem;
 }
 
+/* ─── Page Header (서브페이지 타이틀) ─── */
+.page-header {
+  padding: calc(var(--nav-height) + 48px) 0 48px;
+  background: var(--hero-bg);
+  color: #fff;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.page-header p {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin: 0;
+  font-weight: 400;
+}
+
 /* ─── Hero Section ─── */
 .hero-section {
   padding: calc(var(--nav-height) + 60px) 0 80px;
