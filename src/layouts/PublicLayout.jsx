@@ -7,6 +7,7 @@ import useCodeCopy from '../hooks/useCodeCopy';
 
 // 페이지 lazy import
 const Home = lazy(() => import('../pages/Home'));
+const WhatIsCT = lazy(() => import('../pages/WhatIsCT'));
 const WeeklyPlan = lazy(() => import('../pages/WeeklyPlan'));
 const Syllabus = lazy(() => import('../pages/Syllabus'));
 const PracticeGuide = lazy(() => import('../pages/PracticeGuide'));
@@ -60,6 +61,7 @@ const PublicLayout = () => {
             <Route path="/mypage" element={<AuthGuard><MyPage /></AuthGuard>} />
 
             {/* Computational Thinking */}
+            <Route path="/ct/what-is-ct" element={<WhatIsCT />} />
             <Route path="/ct/weekly-plan" element={<WeeklyPlan />} />
             <Route path="/ct/syllabus" element={<Syllabus />} />
             <Route path="/ct/practice-guide" element={<PracticeGuide />} />

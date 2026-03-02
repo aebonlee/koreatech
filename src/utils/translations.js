@@ -87,6 +87,7 @@ export const translations = {
     site: {
       nav: {
         ct: '컴퓨팅 사고',
+        whatIsCT: '컴퓨팅 사고란?',
         weeklyPlan: '주차별 강의계획',
         syllabus: '강의계획서',
         practiceGuide: '실습안내',
@@ -323,6 +324,7 @@ export const translations = {
     site: {
       nav: {
         ct: 'Comp. Thinking',
+        whatIsCT: 'What is CT?',
         weeklyPlan: 'Weekly Plan',
         syllabus: 'Syllabus',
         practiceGuide: 'Practice Guide',

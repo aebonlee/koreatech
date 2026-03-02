@@ -34,9 +34,10 @@ const site = {
     { path: '/', labelKey: 'nav.home' },
     {
       labelKey: 'site.nav.ct',
-      path: '/ct/weekly-plan',
+      path: '/ct/what-is-ct',
       activePath: '/ct',
       dropdown: [
+        { path: '/ct/what-is-ct', labelKey: 'site.nav.whatIsCT' },
         { path: '/ct/weekly-plan', labelKey: 'site.nav.weeklyPlan' },
         { path: '/ct/syllabus', labelKey: 'site.nav.syllabus' },
         { path: '/ct/practice-guide', labelKey: 'site.nav.practiceGuide' },
