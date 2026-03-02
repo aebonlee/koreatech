@@ -30,6 +30,7 @@ const PythonWeek11 = lazy(() => import('../pages/PythonWeek11'));
 const Board = lazy(() => import('../pages/Board'));
 const BoardDetail = lazy(() => import('../pages/BoardDetail'));
 const BoardWrite = lazy(() => import('../pages/BoardWrite'));
+const LectureMaterials = lazy(() => import('../pages/LectureMaterials'));
 const Lectures = lazy(() => import('../pages/Lectures'));
 const LectureDetail = lazy(() => import('../pages/LectureDetail'));
 const LectureWrite = lazy(() => import('../pages/LectureWrite'));
@@ -81,6 +82,7 @@ const PublicLayout = () => {
             <Route path="/python/list" element={<PythonWeek11 />} />
 
             {/* Lectures */}
+            <Route path="/lectures/materials" element={<LectureMaterials />} />
             <Route path="/lectures" element={<Lectures />} />
             <Route path="/lectures/write" element={<AuthGuard><LectureWrite /></AuthGuard>} />
             <Route path="/lectures/edit/:id" element={<AuthGuard><LectureWrite /></AuthGuard>} />

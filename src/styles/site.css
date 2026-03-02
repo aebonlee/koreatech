@@ -1586,3 +1586,313 @@
   border-color: #374151;
   color: #f3f4f6;
 }
+
+/* ─── Lecture Materials (PDF Download) ─── */
+.materials-table-wrapper {
+  overflow-x: auto;
+}
+
+.materials-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.materials-table thead th {
+  background: var(--bg-light-gray);
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.materials-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.materials-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.materials-table tbody tr:hover {
+  background: var(--primary-blue-bg);
+}
+
+.materials-table tbody tr.active-row {
+  background: var(--primary-blue-bg);
+}
+
+.materials-col-week {
+  width: 80px;
+  text-align: center;
+}
+
+.materials-col-file {
+  width: 120px;
+}
+
+.materials-col-actions {
+  width: 260px;
+}
+
+.materials-week-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.materials-title-cell {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.materials-file-cell {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.materials-btn-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.materials-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--border-light);
+  background: var(--bg-white);
+  color: var(--text-primary);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.materials-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.materials-btn.view {
+  background: var(--primary-blue);
+  color: #fff;
+  border-color: var(--primary-blue);
+}
+
+.materials-btn.view:hover {
+  opacity: 0.9;
+}
+
+.materials-btn.view.active {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.materials-btn.newtab {
+  background: #f0f9ff;
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.materials-btn.newtab:hover {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.materials-btn.download {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #059669;
+}
+
+.materials-btn.download:hover {
+  background: #059669;
+  color: #fff;
+}
+
+.materials-btn.close {
+  background: var(--bg-light-gray);
+  color: var(--text-secondary);
+  border-color: var(--border-light);
+}
+
+/* ─── PDF Viewer ─── */
+.pdf-viewer {
+  margin-top: 2rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-white);
+}
+
+.pdf-viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--bg-light-gray);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.pdf-viewer-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.pdf-viewer-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+}
+
+.pdf-viewer-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── Materials Responsive ─── */
+@media (max-width: 768px) {
+  .materials-col-file {
+    display: none;
+  }
+
+  .materials-col-actions {
+    width: auto;
+  }
+
+  .materials-btn-group {
+    flex-direction: column;
+  }
+
+  .materials-btn {
+    justify-content: center;
+    padding: 8px 12px;
+  }
+
+  .pdf-viewer-container {
+    height: 60vh;
+    min-height: 350px;
+  }
+
+  .pdf-viewer-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .materials-table thead th,
+  .materials-table tbody td {
+    padding: 10px 8px;
+    font-size: 0.82rem;
+  }
+
+  .materials-col-week {
+    width: 60px;
+  }
+}
+
+/* ─── Materials Dark Mode ─── */
+[data-theme="dark"] .materials-table {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .materials-table thead th {
+  background: #111827;
+  border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .materials-table tbody td {
+  border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .materials-table tbody tr:hover {
+  background: rgba(0, 70, 200, 0.1);
+}
+
+[data-theme="dark"] .materials-table tbody tr.active-row {
+  background: rgba(0, 70, 200, 0.15);
+}
+
+[data-theme="dark"] .materials-week-badge {
+  background: rgba(0, 70, 200, 0.2);
+}
+
+[data-theme="dark"] .materials-btn {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+[data-theme="dark"] .materials-btn.view {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: #fff;
+}
+
+[data-theme="dark"] .materials-btn.view.active {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+[data-theme="dark"] .materials-btn.newtab {
+  background: rgba(0, 70, 200, 0.1);
+  color: #93c5fd;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .materials-btn.newtab:hover {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+[data-theme="dark"] .materials-btn.download {
+  background: rgba(5, 150, 105, 0.1);
+  color: #6ee7b7;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .materials-btn.download:hover {
+  background: #059669;
+  color: #fff;
+}
+
+[data-theme="dark"] .pdf-viewer {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .pdf-viewer-header {
+  background: #111827;
+  border-bottom-color: #374151;
+}

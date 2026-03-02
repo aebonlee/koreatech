@@ -61,7 +61,15 @@ const site = {
         { path: '/python/list', labelKey: 'site.nav.pyWeek11' },
       ]
     },
-    { path: '/lectures', labelKey: 'site.nav.lectures', activePath: '/lectures' },
+    {
+      labelKey: 'site.nav.lectures',
+      path: '/lectures',
+      activePath: '/lectures',
+      dropdown: [
+        { path: '/lectures/materials', labelKey: 'site.nav.lectureMaterials' },
+        { path: '/lectures', labelKey: 'site.nav.lectureBoard' },
+      ]
+    },
     { path: '/board', labelKey: 'site.nav.board', activePath: '/board' }
   ],
 

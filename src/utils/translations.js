@@ -104,6 +104,8 @@ export const translations = {
         pyWeek10: '10주차: 예외처리',
         pyWeek11: '11주차: 리스트',
         lectures: '주차별 강의안',
+        lectureMaterials: '강의자료 다운로드',
+        lectureBoard: '강의안 게시판',
         board: '게시판'
       },
       ct: {
@@ -148,6 +150,19 @@ export const translations = {
       lectures: {
         title: '주차별 강의안',
         subtitle: '매주 강의 자료를 확인하세요',
+        materials: {
+          title: '강의자료 다운로드',
+          subtitle: '주차별 강의 PDF를 다운로드하거나 바로 확인하세요',
+          week: '주차',
+          weekUnit: '주차',
+          titleLabel: '강의 제목',
+          fileName: '파일명',
+          actions: '보기 / 다운로드',
+          view: '보기',
+          close: '닫기',
+          newTab: '새 탭',
+          download: '다운로드',
+        },
         write: '강의안 등록',
         writeTitle: '강의안 등록',
         editTitle: '강의안 수정',
@@ -341,6 +356,8 @@ export const translations = {
         pyWeek10: 'W10: Exceptions',
         pyWeek11: 'W11: Lists',
         lectures: 'Lectures',
+        lectureMaterials: 'Lecture Materials',
+        lectureBoard: 'Lecture Board',
         board: 'Board'
       },
       ct: {
@@ -385,6 +402,19 @@ export const translations = {
       lectures: {
         title: 'Weekly Lectures',
         subtitle: 'Check out the lecture materials each week',
+        materials: {
+          title: 'Lecture Materials',
+          subtitle: 'Download or view weekly lecture PDFs',
+          week: 'Week',
+          weekUnit: '',
+          titleLabel: 'Title',
+          fileName: 'File',
+          actions: 'View / Download',
+          view: 'View',
+          close: 'Close',
+          newTab: 'New Tab',
+          download: 'Download',
+        },
         write: 'New Lecture',
         writeTitle: 'Create Lecture',
         editTitle: 'Edit Lecture',
