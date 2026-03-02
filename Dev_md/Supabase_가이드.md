@@ -89,7 +89,7 @@ CREATE POLICY "Users can update own profile" ON user_profiles
   FOR UPDATE USING (auth.uid() = id);
 ```
 
-### 조회수 증가 함수 (옵션)
+### 조회수 증가 함수
 ```sql
 CREATE OR REPLACE FUNCTION increment_views(post_id BIGINT)
 RETURNS void AS $$
@@ -99,12 +99,45 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 ```
 
+### 회원가입 시 프로필 자동 생성 트리거
+```sql
+CREATE OR REPLACE FUNCTION handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO user_profiles (id, email, display_name, provider, signup_domain)
+  VALUES (
+    NEW.id,
+    NEW.email,
+    COALESCE(NEW.raw_user_meta_data->>'full_name', NEW.raw_user_meta_data->>'name', split_part(NEW.email, '@', 1)),
+    NEW.raw_app_meta_data->>'provider',
+    NEW.raw_user_meta_data->>'signup_domain'
+  );
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION handle_new_user();
+```
+
 ## 4. Auth 설정
 1. Authentication > Providers에서 Google, Kakao 활성화
 2. Site URL을 `https://koreatech.dreamitbiz.com`으로 설정
 3. Redirect URLs에 `https://koreatech.dreamitbiz.com/**` 추가
 
 ## 5. GitHub Actions 시크릿
-Repository Settings > Secrets에 추가:
+Repository Settings > Secrets and variables > Actions에 추가:
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
+
+## 6. 설정 완료 체크리스트
+- [x] 프로젝트 생성 및 환경변수 설정
+- [x] 테이블 3개 생성 (posts, comments, user_profiles)
+- [x] RLS 정책 적용
+- [x] increment_views 함수 생성
+- [x] handle_new_user 트리거 생성
+- [x] Auth 도메인 등록 (Site URL + Redirect URLs)
+- [x] GitHub Actions 시크릿 설정
+- [ ] Google OAuth Provider 키 등록
+- [ ] Kakao OAuth Provider 키 등록
