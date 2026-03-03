@@ -492,8 +492,7 @@
     }
 
     .footer-links ul {
-        columns: 2;
-        column-gap: 24px;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .footer-info {
@@ -1020,6 +1019,10 @@
 
     .footer-brand p {
         font-size: 14px;
+    }
+
+    .footer-links ul {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-links a {
