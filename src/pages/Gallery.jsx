@@ -6,7 +6,7 @@ import { getGalleryItems } from '../utils/supabase';
 import Pagination from '../components/Pagination';
 import SEOHead from '../components/SEOHead';
 
-const CATEGORIES = ['all', 'artwork', 'project', 'screenshot', 'coding'];
+const CATEGORIES = ['all', 'coding', 'artwork', 'project', 'screenshot'];
 
 const Gallery = () => {
   const { t } = useLanguage();

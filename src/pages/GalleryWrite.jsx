@@ -17,7 +17,7 @@ const GalleryWrite = () => {
 
   const [form, setForm] = useState({
     title: '',
-    category: 'artwork',
+    category: 'coding',
     image_url: '',
     link_url: '',
     description: '',
@@ -111,10 +111,10 @@ const GalleryWrite = () => {
                 value={form.category}
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
               >
+                <option value="coding">{t('site.gallery.coding')}</option>
                 <option value="artwork">{t('site.gallery.artwork')}</option>
                 <option value="project">{t('site.gallery.project')}</option>
                 <option value="screenshot">{t('site.gallery.screenshot')}</option>
-                <option value="coding">{t('site.gallery.coding')}</option>
               </select>
             </div>
 
