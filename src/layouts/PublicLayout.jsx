@@ -4,6 +4,7 @@ import AuthGuard from '../components/AuthGuard';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import useCodeCopy from '../hooks/useCodeCopy';
+import useTableScroller from '../hooks/useTableScroller';
 
 // 페이지 lazy import
 const Home = lazy(() => import('../pages/Home'));
@@ -63,6 +64,7 @@ const Loading = () => (
 
 const PublicLayout = () => {
   useCodeCopy();
+  useTableScroller();
 
   return (
     <div className="site-wrapper">

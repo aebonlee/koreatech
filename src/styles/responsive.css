@@ -645,6 +645,54 @@
         width: 80px;
     }
 
+    /* ── Table Scroll: mobile adjustments ── */
+    .table-scroll-container {
+        margin: 1rem -4px;
+    }
+
+    .lesson-table th,
+    .lesson-table td {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    .lesson-table td {
+        white-space: normal;
+        min-width: 120px;
+    }
+
+    /* ── Lesson Content: mobile readability ── */
+    .lesson-body {
+        max-width: 100%;
+    }
+
+    .lesson-body p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+        word-break: keep-all;
+    }
+
+    .lesson-body li {
+        font-size: 0.95rem;
+        line-height: 1.85;
+        margin-bottom: 6px;
+    }
+
+    .lesson-body h3 {
+        font-size: 1.15rem;
+        margin: 1.8rem 0 0.8rem;
+    }
+
+    .callout-box {
+        padding: 16px 18px;
+        font-size: 0.9rem;
+    }
+
+    .callout-box h3 {
+        font-size: 0.95rem;
+    }
+
     /* ── Mobile Typography & Readability ── */
 
     /* Relax letter-spacing on mobile for readability */
@@ -851,6 +899,44 @@
 @media (max-width: 480px) {
     .container {
         padding: 0 16px;
+    }
+
+    /* ── Table Scroll: small mobile ── */
+    .table-scroll-arrow {
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+    }
+
+    .lesson-table th,
+    .lesson-table td {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* ── Lesson content: small mobile ── */
+    .lesson-body p {
+        font-size: 0.9rem;
+        line-height: 1.95;
+    }
+
+    .lesson-body li {
+        font-size: 0.9rem;
+    }
+
+    .lesson-body h3 {
+        font-size: 1.1rem;
+    }
+
+    .callout-box {
+        padding: 14px 16px;
+        font-size: 0.85rem;
+        margin: 1rem 0;
+    }
+
+    .code-block {
+        margin: 1rem -8px;
+        border-radius: var(--radius-sm);
     }
 
     .carousel-dots {

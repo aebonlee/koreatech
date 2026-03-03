@@ -397,6 +397,60 @@
   color: var(--text-secondary);
 }
 
+/* ─── Table Scroll Container ─── */
+.table-scroll-container {
+  position: relative;
+}
+
+.table-scroll-inner {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll-inner::-webkit-scrollbar {
+  height: 4px;
+}
+
+.table-scroll-inner::-webkit-scrollbar-thumb {
+  background: var(--text-light);
+  border-radius: 2px;
+}
+
+.table-scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary-blue, #2563eb);
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  border: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.table-scroll-arrow:hover {
+  opacity: 1;
+}
+
+.table-scroll-arrow-left {
+  left: 2px;
+}
+
+.table-scroll-arrow-right {
+  right: 2px;
+}
+
 /* ─── Callout Box ─── */
 .callout-box {
   background: #f0f9ff;
