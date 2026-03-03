@@ -23,7 +23,7 @@
 /* ─── Page Header (서브페이지 타이틀) ─── */
 .page-header {
   padding: calc(var(--nav-height) + 48px) 0 48px;
-  background: var(--hero-bg);
+  background: var(--primary-gradient);
   color: #fff;
   text-align: center;
 }

@@ -70,7 +70,7 @@
 }
 
 [data-theme="dark"] .page-header {
-    background: var(--hero-bg-dark);
+    background: var(--primary-gradient);
 }
 
 [data-theme="dark"] .footer {
