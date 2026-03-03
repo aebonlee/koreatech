@@ -16,10 +16,12 @@ const SEOHead = ({ title, description, path = '', ogImage, noindex = false }) =>
       <meta name="description" content={desc} />
       <link rel="canonical" href={`${BASE}${path}`} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
+      <meta property="og:type" content="website" />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={desc} />
       <meta property="og:url" content={`${BASE}${path}`} />
       <meta property="og:image" content={image} />
+      <meta property="og:site_name" content="KoreaTech 컴퓨팅 사고" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={desc} />
