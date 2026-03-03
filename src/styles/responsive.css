@@ -250,6 +250,11 @@
 
     .logo h1 {
         font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .logo .brand-biz {
+        display: block;
     }
 
     .nav-actions {
