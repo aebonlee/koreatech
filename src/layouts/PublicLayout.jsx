@@ -27,6 +27,15 @@ const PythonWeek8 = lazy(() => import('../pages/PythonWeek8'));
 const PythonWeek9 = lazy(() => import('../pages/PythonWeek9'));
 const PythonWeek10 = lazy(() => import('../pages/PythonWeek10'));
 const PythonWeek11 = lazy(() => import('../pages/PythonWeek11'));
+const AiTipsHome = lazy(() => import('../pages/AiTipsHome'));
+const AiTipsChatGPT = lazy(() => import('../pages/AiTipsChatGPT'));
+const AiTipsClaude = lazy(() => import('../pages/AiTipsClaude'));
+const AiTipsGemini = lazy(() => import('../pages/AiTipsGemini'));
+const AiTipsCopilot = lazy(() => import('../pages/AiTipsCopilot'));
+const AiTipsPrompt = lazy(() => import('../pages/AiTipsPrompt'));
+const AiTipsCoding = lazy(() => import('../pages/AiTipsCoding'));
+const AiTipsWriting = lazy(() => import('../pages/AiTipsWriting'));
+const AiTipsLearning = lazy(() => import('../pages/AiTipsLearning'));
 const Board = lazy(() => import('../pages/Board'));
 const BoardDetail = lazy(() => import('../pages/BoardDetail'));
 const BoardWrite = lazy(() => import('../pages/BoardWrite'));
@@ -80,6 +89,17 @@ const PublicLayout = () => {
             <Route path="/python/function" element={<PythonWeek9 />} />
             <Route path="/python/exception" element={<PythonWeek10 />} />
             <Route path="/python/list" element={<PythonWeek11 />} />
+
+            {/* AI Tips */}
+            <Route path="/ai-tips" element={<AiTipsHome />} />
+            <Route path="/ai-tips/chatgpt" element={<AiTipsChatGPT />} />
+            <Route path="/ai-tips/claude" element={<AiTipsClaude />} />
+            <Route path="/ai-tips/gemini" element={<AiTipsGemini />} />
+            <Route path="/ai-tips/copilot" element={<AiTipsCopilot />} />
+            <Route path="/ai-tips/prompt" element={<AiTipsPrompt />} />
+            <Route path="/ai-tips/coding" element={<AiTipsCoding />} />
+            <Route path="/ai-tips/writing" element={<AiTipsWriting />} />
+            <Route path="/ai-tips/learning" element={<AiTipsLearning />} />
 
             {/* Lectures */}
             <Route path="/lectures/materials" element={<LectureMaterials />} />

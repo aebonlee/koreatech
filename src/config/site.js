@@ -61,6 +61,21 @@ const site = {
         { path: '/python/list', labelKey: 'site.nav.pyWeek11' },
       ]
     },
+    {
+      labelKey: 'site.nav.aiTips',
+      path: '/ai-tips',
+      activePath: '/ai-tips',
+      dropdown: [
+        { path: '/ai-tips/chatgpt', labelKey: 'site.nav.aiChatGPT' },
+        { path: '/ai-tips/claude', labelKey: 'site.nav.aiClaude' },
+        { path: '/ai-tips/gemini', labelKey: 'site.nav.aiGemini' },
+        { path: '/ai-tips/copilot', labelKey: 'site.nav.aiCopilot' },
+        { path: '/ai-tips/prompt', labelKey: 'site.nav.aiPrompt' },
+        { path: '/ai-tips/coding', labelKey: 'site.nav.aiCoding' },
+        { path: '/ai-tips/writing', labelKey: 'site.nav.aiWriting' },
+        { path: '/ai-tips/learning', labelKey: 'site.nav.aiLearning' },
+      ]
+    },
     { path: '/lectures', labelKey: 'site.nav.lectures', activePath: '/lectures' },
     { path: '/references', labelKey: 'site.nav.references', activePath: '/references' },
     { path: '/board', labelKey: 'site.nav.board', activePath: '/board' }
