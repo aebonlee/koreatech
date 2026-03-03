@@ -44,7 +44,10 @@ const Home = () => {
       <section className="hero-section">
         <div className="container">
           <div className="hero-content" data-aos="fade-up">
-            <h1 className="hero-title">{t('site.home.subtitle')}</h1>
+            <h1 className="hero-title">
+              <span className="hero-title-line1">파이썬으로 시작하는</span>{' '}
+              <span className="hero-title-line2">컴퓨팅 사고</span>
+            </h1>
             <p className="hero-description">{t('site.home.heroDesc')}</p>
             <div className="hero-actions">
               <Link to="/python" className="hero-btn primary">{t('site.home.startLearning')}</Link>

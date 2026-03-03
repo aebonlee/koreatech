@@ -1357,6 +1357,10 @@
     height: auto;
   }
 
+  .hero-title-line2 {
+    display: block;
+  }
+
   .hero-section .hero-description {
     font-size: 0.95rem;
     height: auto;
