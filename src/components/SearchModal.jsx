@@ -106,7 +106,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                 <button
                   key={`board-${item.id}`}
                   className="search-result-item"
-                  onClick={() => handleNavigate(`/board/${item.id}`)}
+                  onClick={() => handleNavigate(`/community/board/${item.id}`)}
                 >
                   <span className="search-result-type">Board</span>
                   <div className="search-result-info">

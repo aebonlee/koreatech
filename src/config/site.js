@@ -78,7 +78,16 @@ const site = {
     },
     { path: '/lectures', labelKey: 'site.nav.lectures', activePath: '/lectures' },
     { path: '/references', labelKey: 'site.nav.references', activePath: '/references' },
-    { path: '/board', labelKey: 'site.nav.board', activePath: '/board' }
+    {
+      labelKey: 'site.nav.community',
+      path: '/community/board',
+      activePath: '/community',
+      dropdown: [
+        { path: '/community/board', labelKey: 'site.nav.board' },
+        { path: '/community/gallery', labelKey: 'site.nav.gallery' },
+        { path: '/community/portfolio', labelKey: 'site.nav.portfolio' },
+      ]
+    }
   ],
 
   // 푸터 바로가기 링크
@@ -89,7 +98,9 @@ const site = {
     { path: '/ai-tips', labelKey: 'site.nav.aiTips' },
     { path: '/lectures', labelKey: 'site.nav.lectures' },
     { path: '/references', labelKey: 'site.nav.references' },
-    { path: '/board', labelKey: 'site.nav.board' }
+    { path: '/community/board', labelKey: 'site.nav.board' },
+    { path: '/community/gallery', labelKey: 'site.nav.gallery' },
+    { path: '/community/portfolio', labelKey: 'site.nav.portfolio' }
   ],
 
   // Family Site 목록

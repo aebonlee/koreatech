@@ -3,44 +3,51 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
-import { getPostById, deletePost, incrementViews, getComments, createComment, deleteComment } from '../utils/supabase';
+import {
+  getPortfolioById,
+  deletePortfolio,
+  incrementPortfolioViews,
+  getPortfolioComments,
+  createPortfolioComment,
+  deletePortfolioComment,
+} from '../utils/supabase';
 import SEOHead from '../components/SEOHead';
 
-const BoardDetail = () => {
+const PortfolioDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { t } = useLanguage();
   const { user, isAdmin } = useAuth();
   const { showToast } = useToast();
 
-  const [post, setPost] = useState(null);
+  const [item, setItem] = useState(null);
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    loadPost();
+    loadItem();
   }, [id]);
 
-  const loadPost = async () => {
+  const loadItem = async () => {
     setLoading(true);
-    const data = await getPostById(id);
-    setPost(data);
+    const data = await getPortfolioById(id);
+    setItem(data);
     if (data) {
-      incrementViews(id);
-      const cmts = await getComments(id);
+      incrementPortfolioViews(id);
+      const cmts = await getPortfolioComments(id);
       setComments(cmts);
     }
     setLoading(false);
   };
 
   const handleDelete = async () => {
-    if (!window.confirm(t('site.board.deleteConfirm'))) return;
+    if (!window.confirm(t('site.portfolio.deleteConfirm'))) return;
     try {
-      await deletePost(id);
+      await deletePortfolio(id);
       showToast('삭제되었습니다.', 'success');
-      navigate('/community/board');
+      navigate('/community/portfolio');
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -50,14 +57,14 @@ const BoardDetail = () => {
     if (!commentText.trim()) return;
     setSubmitting(true);
     try {
-      await createComment({
-        post_id: Number(id),
+      await createPortfolioComment({
+        portfolio_id: Number(id),
         user_id: user.id,
         author_name: user.user_metadata?.full_name || user.email,
         content: commentText.trim(),
       });
       setCommentText('');
-      const cmts = await getComments(id);
+      const cmts = await getPortfolioComments(id);
       setComments(cmts);
     } catch (err) {
       showToast(err.message, 'error');
@@ -69,21 +76,12 @@ const BoardDetail = () => {
   const handleCommentDelete = async (commentId) => {
     if (!window.confirm(t('comments.deleteConfirm'))) return;
     try {
-      await deleteComment(commentId);
-      const cmts = await getComments(id);
+      await deletePortfolioComment(commentId);
+      const cmts = await getPortfolioComments(id);
       setComments(cmts);
     } catch (err) {
       showToast(err.message, 'error');
     }
-  };
-
-  const getCategoryLabel = (cat) => {
-    const map = {
-      notice: t('site.board.notice'),
-      question: t('site.board.question'),
-      free: t('site.board.free'),
-    };
-    return map[cat] || cat;
   };
 
   if (loading) {
@@ -96,55 +94,66 @@ const BoardDetail = () => {
     );
   }
 
-  if (!post) {
+  if (!item) {
     return (
       <section className="section">
         <div className="container">
-          <div className="board-empty">{t('site.board.noPost')}</div>
-          <Link to="/community/board" className="board-btn">{t('site.board.backToList')}</Link>
+          <div className="board-empty">{t('site.portfolio.notFound')}</div>
+          <Link to="/community/portfolio" className="board-btn">{t('site.portfolio.backToList')}</Link>
         </div>
       </section>
     );
   }
 
-  const isAuthor = user?.id === post.user_id;
+  const isAuthor = user?.id === item.user_id;
 
   return (
     <>
-      <SEOHead title={post.title} path={`/community/board/${id}`} />
+      <SEOHead title={item.title} path={`/community/portfolio/${id}`} />
 
       <section className="page-header">
         <div className="container">
-          <h1>{t('site.board.title')}</h1>
+          <h1>{t('site.portfolio.title')}</h1>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
           <div className="board-detail">
-            <div className="board-detail-header">
-              <span className={`board-badge badge-${post.category}`}>
-                {getCategoryLabel(post.category)}
-              </span>
-              <h2 className="board-detail-title">{post.title}</h2>
-              <div className="board-detail-meta">
-                <span>{post.author_name}</span>
-                <span>{new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
-                <span>{t('site.board.views')}: {post.views || 0}</span>
+            {/* Cover Image */}
+            {item.cover_image && (
+              <div className="gallery-detail-image">
+                <img src={item.cover_image} alt={item.title} />
               </div>
+            )}
+
+            <div className="board-detail-header">
+              <h2 className="board-detail-title">{item.title}</h2>
+              <div className="board-detail-meta">
+                <span>{item.author_name}</span>
+                <span>{new Date(item.created_at).toLocaleDateString('ko-KR')}</span>
+                <span>{t('site.portfolio.views')}: {item.views || 0}</span>
+              </div>
+              {item.tags && (
+                <div className="lecture-card-tags" style={{ marginTop: '12px' }}>
+                  {item.tags.split(',').map((tag, i) => (
+                    <span key={i} className="lecture-tag">{tag.trim()}</span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="board-detail-content">
-              {post.content.split('\n').map((line, i) => (
+              {item.content.split('\n').map((line, i) => (
                 <p key={i}>{line || '\u00A0'}</p>
               ))}
             </div>
 
             <div className="board-detail-actions">
-              <Link to="/community/board" className="board-btn">{t('site.board.backToList')}</Link>
+              <Link to="/community/portfolio" className="board-btn">{t('site.portfolio.backToList')}</Link>
               {(isAuthor || isAdmin) && (
                 <button className="board-btn danger" onClick={handleDelete}>
-                  {t('site.board.delete')}
+                  {t('site.portfolio.delete')}
                 </button>
               )}
             </div>
@@ -200,4 +209,4 @@ const BoardDetail = () => {
   );
 };
 
-export default BoardDetail;
+export default PortfolioDetail;

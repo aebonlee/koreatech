@@ -331,4 +331,250 @@ export const updateLastLogin = async (userId) => {
   await client.rpc('update_last_login', { target_user_id: userId }).catch(() => {});
 };
 
+// ─── Gallery ───
+
+const GALLERY_PER_PAGE = 12;
+
+export const getGalleryItems = async (page = 1, category = null) => {
+  const client = getSupabase();
+  if (!client) return { items: [], total: 0 };
+
+  let query = client
+    .from('gallery')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false });
+
+  if (category) {
+    query = query.eq('category', category);
+  }
+
+  const from = (page - 1) * GALLERY_PER_PAGE;
+  const to = from + GALLERY_PER_PAGE - 1;
+  query = query.range(from, to);
+
+  const { data, error, count } = await query;
+
+  if (error) {
+    console.error('getGalleryItems error:', error);
+    return { items: [], total: 0 };
+  }
+
+  return { items: data || [], total: count || 0 };
+};
+
+export const getGalleryItemById = async (id) => {
+  const client = getSupabase();
+  if (!client) return null;
+
+  const { data, error } = await client
+    .from('gallery')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error('getGalleryItemById error:', error);
+    return null;
+  }
+
+  return data;
+};
+
+export const createGalleryItem = async (itemData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('gallery')
+    .insert(itemData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const deleteGalleryItem = async (id) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { error } = await client
+    .from('gallery')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+};
+
+export const incrementGalleryViews = async (id) => {
+  const client = getSupabase();
+  if (!client) return;
+
+  await client.rpc('increment_gallery_views', { item_id: id }).catch(() => {});
+};
+
+export const getGalleryComments = async (galleryId) => {
+  const client = getSupabase();
+  if (!client) return [];
+
+  const { data, error } = await client
+    .from('gallery_comments')
+    .select('*')
+    .eq('gallery_id', galleryId)
+    .order('created_at', { ascending: true });
+
+  if (error) {
+    console.error('getGalleryComments error:', error);
+    return [];
+  }
+
+  return data || [];
+};
+
+export const createGalleryComment = async (commentData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('gallery_comments')
+    .insert(commentData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const deleteGalleryComment = async (id) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { error } = await client
+    .from('gallery_comments')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+};
+
+// ─── Portfolio ───
+
+const PORTFOLIO_PER_PAGE = 12;
+
+export const getPortfolios = async (page = 1) => {
+  const client = getSupabase();
+  if (!client) return { items: [], total: 0 };
+
+  const from = (page - 1) * PORTFOLIO_PER_PAGE;
+  const to = from + PORTFOLIO_PER_PAGE - 1;
+
+  const { data, error, count } = await client
+    .from('portfolio')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .range(from, to);
+
+  if (error) {
+    console.error('getPortfolios error:', error);
+    return { items: [], total: 0 };
+  }
+
+  return { items: data || [], total: count || 0 };
+};
+
+export const getPortfolioById = async (id) => {
+  const client = getSupabase();
+  if (!client) return null;
+
+  const { data, error } = await client
+    .from('portfolio')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error('getPortfolioById error:', error);
+    return null;
+  }
+
+  return data;
+};
+
+export const createPortfolio = async (portfolioData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('portfolio')
+    .insert(portfolioData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const deletePortfolio = async (id) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { error } = await client
+    .from('portfolio')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+};
+
+export const incrementPortfolioViews = async (id) => {
+  const client = getSupabase();
+  if (!client) return;
+
+  await client.rpc('increment_portfolio_views', { item_id: id }).catch(() => {});
+};
+
+export const getPortfolioComments = async (portfolioId) => {
+  const client = getSupabase();
+  if (!client) return [];
+
+  const { data, error } = await client
+    .from('portfolio_comments')
+    .select('*')
+    .eq('portfolio_id', portfolioId)
+    .order('created_at', { ascending: true });
+
+  if (error) {
+    console.error('getPortfolioComments error:', error);
+    return [];
+  }
+
+  return data || [];
+};
+
+export const createPortfolioComment = async (commentData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('portfolio_comments')
+    .insert(commentData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const deletePortfolioComment = async (id) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { error } = await client
+    .from('portfolio_comments')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+};
+
 export default getSupabase;

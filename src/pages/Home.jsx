@@ -48,7 +48,7 @@ const Home = () => {
             <p className="hero-description">{t('site.home.heroDesc')}</p>
             <div className="hero-actions">
               <Link to="/python" className="hero-btn primary">{t('site.home.startLearning')}</Link>
-              <Link to="/board" className="hero-btn secondary">{t('site.home.goToBoard')}</Link>
+              <Link to="/community/board" className="hero-btn secondary">{t('site.home.goToBoard')}</Link>
             </div>
           </div>
         </div>

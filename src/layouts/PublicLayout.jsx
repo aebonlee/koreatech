@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AuthGuard from '../components/AuthGuard';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
@@ -39,6 +39,12 @@ const AiTipsLearning = lazy(() => import('../pages/AiTipsLearning'));
 const Board = lazy(() => import('../pages/Board'));
 const BoardDetail = lazy(() => import('../pages/BoardDetail'));
 const BoardWrite = lazy(() => import('../pages/BoardWrite'));
+const Gallery = lazy(() => import('../pages/Gallery'));
+const GalleryDetail = lazy(() => import('../pages/GalleryDetail'));
+const GalleryWrite = lazy(() => import('../pages/GalleryWrite'));
+const Portfolio = lazy(() => import('../pages/Portfolio'));
+const PortfolioDetail = lazy(() => import('../pages/PortfolioDetail'));
+const PortfolioWrite = lazy(() => import('../pages/PortfolioWrite'));
 const LectureMaterials = lazy(() => import('../pages/LectureMaterials'));
 const Lectures = lazy(() => import('../pages/Lectures'));
 const LectureDetail = lazy(() => import('../pages/LectureDetail'));
@@ -111,13 +117,27 @@ const PublicLayout = () => {
             <Route path="/references/edit/:id" element={<AuthGuard><LectureWrite /></AuthGuard>} />
             <Route path="/references/:id" element={<LectureDetail />} />
 
-            {/* Board */}
-            <Route path="/board" element={<Board />} />
-            <Route path="/board/write" element={<AuthGuard><BoardWrite /></AuthGuard>} />
-            <Route path="/board/:id" element={<BoardDetail />} />
+            {/* Community — Board */}
+            <Route path="/community/board" element={<Board />} />
+            <Route path="/community/board/write" element={<AuthGuard><BoardWrite /></AuthGuard>} />
+            <Route path="/community/board/:id" element={<BoardDetail />} />
+
+            {/* Community — Gallery */}
+            <Route path="/community/gallery" element={<Gallery />} />
+            <Route path="/community/gallery/write" element={<AuthGuard><GalleryWrite /></AuthGuard>} />
+            <Route path="/community/gallery/:id" element={<GalleryDetail />} />
+
+            {/* Community — Portfolio */}
+            <Route path="/community/portfolio" element={<Portfolio />} />
+            <Route path="/community/portfolio/write" element={<AuthGuard><PortfolioWrite /></AuthGuard>} />
+            <Route path="/community/portfolio/:id" element={<PortfolioDetail />} />
 
             {/* Admin */}
             <Route path="/admin" element={<AuthGuard><Admin /></AuthGuard>} />
+
+            {/* Legacy redirects */}
+            <Route path="/board" element={<Navigate to="/community/board" replace />} />
+            <Route path="/board/:id" element={<Navigate to="/community/board" replace />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />

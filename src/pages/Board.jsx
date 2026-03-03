@@ -51,7 +51,7 @@ const Board = () => {
 
   return (
     <>
-      <SEOHead title={t('site.board.title')} path="/board" />
+      <SEOHead title={t('site.board.title')} path="/community/board" />
 
       <section className="page-header">
         <div className="container">
@@ -79,7 +79,7 @@ const Board = () => {
                   ))}
                 </div>
                 {isLoggedIn && (
-                  <Link to="/board/write" className="board-write-btn">
+                  <Link to="/community/board/write" className="board-write-btn">
                     {t('site.board.write')}
                   </Link>
                 )}
@@ -113,7 +113,7 @@ const Board = () => {
                               </span>
                             </td>
                             <td className="board-col-title">
-                              <Link to={`/board/${post.id}`}>{post.title}</Link>
+                              <Link to={`/community/board/${post.id}`}>{post.title}</Link>
                             </td>
                             <td className="board-col-author">{post.author_name}</td>
                             <td className="board-col-date">{formatDate(post.created_at)}</td>
