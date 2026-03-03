@@ -125,11 +125,13 @@ const PublicLayout = () => {
             {/* Community — Gallery */}
             <Route path="/community/gallery" element={<Gallery />} />
             <Route path="/community/gallery/write" element={<AuthGuard><GalleryWrite /></AuthGuard>} />
+            <Route path="/community/gallery/edit/:id" element={<AuthGuard><GalleryWrite /></AuthGuard>} />
             <Route path="/community/gallery/:id" element={<GalleryDetail />} />
 
             {/* Community — Portfolio */}
             <Route path="/community/portfolio" element={<Portfolio />} />
             <Route path="/community/portfolio/write" element={<AuthGuard><PortfolioWrite /></AuthGuard>} />
+            <Route path="/community/portfolio/edit/:id" element={<AuthGuard><PortfolioWrite /></AuthGuard>} />
             <Route path="/community/portfolio/:id" element={<PortfolioDetail />} />
 
             {/* Admin */}

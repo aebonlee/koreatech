@@ -1,24 +1,50 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
-import { createGalleryItem } from '../utils/supabase';
+import { createGalleryItem, updateGalleryItem, getGalleryItemById } from '../utils/supabase';
 import SEOHead from '../components/SEOHead';
 
 const GalleryWrite = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const { t } = useLanguage();
   const { user } = useAuth();
   const { showToast } = useToast();
+
+  const isEdit = !!id;
 
   const [form, setForm] = useState({
     title: '',
     category: 'artwork',
     image_url: '',
+    link_url: '',
     description: '',
   });
   const [submitting, setSubmitting] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isEdit) {
+      loadItem();
+    }
+  }, [id]);
+
+  const loadItem = async () => {
+    setLoading(true);
+    const data = await getGalleryItemById(id);
+    if (data) {
+      setForm({
+        title: data.title || '',
+        category: data.category || 'artwork',
+        image_url: data.image_url || '',
+        link_url: data.link_url || '',
+        description: data.description || '',
+      });
+    }
+    setLoading(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,15 +52,26 @@ const GalleryWrite = () => {
 
     setSubmitting(true);
     try {
-      const item = await createGalleryItem({
+      const itemData = {
         title: form.title.trim(),
         category: form.category,
         image_url: form.image_url.trim(),
+        link_url: form.link_url.trim() || null,
         description: form.description.trim(),
-        user_id: user.id,
-        author_name: user.user_metadata?.full_name || user.email,
-      });
-      showToast('작품이 등록되었습니다.', 'success');
+      };
+
+      let item;
+      if (isEdit) {
+        item = await updateGalleryItem(id, itemData);
+        showToast(t('site.gallery.updated'), 'success');
+      } else {
+        item = await createGalleryItem({
+          ...itemData,
+          user_id: user.id,
+          author_name: user.user_metadata?.full_name || user.email,
+        });
+        showToast('작품이 등록되었습니다.', 'success');
+      }
       navigate(`/community/gallery/${item.id}`);
     } catch (err) {
       showToast(err.message, 'error');
@@ -43,13 +80,25 @@ const GalleryWrite = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <section className="section">
+        <div className="container" style={{ textAlign: 'center', padding: '80px 0' }}>
+          <div className="loading-spinner"></div>
+        </div>
+      </section>
+    );
+  }
+
+  const pageTitle = isEdit ? t('site.gallery.editTitle') : t('site.gallery.writeTitle');
+
   return (
     <>
-      <SEOHead title={t('site.gallery.writeTitle')} path="/community/gallery/write" noindex />
+      <SEOHead title={pageTitle} path={isEdit ? `/community/gallery/edit/${id}` : '/community/gallery/write'} noindex />
 
       <section className="page-header">
         <div className="container">
-          <h1>{t('site.gallery.writeTitle')}</h1>
+          <h1>{pageTitle}</h1>
         </div>
       </section>
 
@@ -87,6 +136,16 @@ const GalleryWrite = () => {
                 onChange={(e) => setForm({ ...form, image_url: e.target.value })}
                 placeholder={t('site.gallery.imageUrlPlaceholder')}
                 required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>{t('site.gallery.linkUrl')}</label>
+              <input
+                type="url"
+                value={form.link_url}
+                onChange={(e) => setForm({ ...form, link_url: e.target.value })}
+                placeholder={t('site.gallery.linkUrlPlaceholder')}
               />
             </div>
 

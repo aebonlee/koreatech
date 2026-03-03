@@ -152,6 +152,11 @@ const PortfolioDetail = () => {
             <div className="board-detail-actions">
               <Link to="/community/portfolio" className="board-btn">{t('site.portfolio.backToList')}</Link>
               {(isAuthor || isAdmin) && (
+                <Link to={`/community/portfolio/edit/${id}`} className="board-btn">
+                  {t('site.portfolio.edit')}
+                </Link>
+              )}
+              {(isAuthor || isAdmin) && (
                 <button className="board-btn danger" onClick={handleDelete}>
                   {t('site.portfolio.delete')}
                 </button>

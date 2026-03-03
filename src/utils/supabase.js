@@ -394,6 +394,21 @@ export const createGalleryItem = async (itemData) => {
   return data;
 };
 
+export const updateGalleryItem = async (id, itemData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('gallery')
+    .update(itemData)
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
 export const deleteGalleryItem = async (id) => {
   const client = getSupabase();
   if (!client) throw new Error('Supabase not configured');
@@ -507,6 +522,21 @@ export const createPortfolio = async (portfolioData) => {
   const { data, error } = await client
     .from('portfolio')
     .insert(portfolioData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const updatePortfolio = async (id, portfolioData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('portfolio')
+    .update(portfolioData)
+    .eq('id', id)
     .select()
     .single();
 

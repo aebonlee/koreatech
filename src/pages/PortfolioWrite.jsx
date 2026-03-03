@@ -1,16 +1,19 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
-import { createPortfolio } from '../utils/supabase';
+import { createPortfolio, updatePortfolio, getPortfolioById } from '../utils/supabase';
 import SEOHead from '../components/SEOHead';
 
 const PortfolioWrite = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const { t } = useLanguage();
   const { user } = useAuth();
   const { showToast } = useToast();
+
+  const isEdit = !!id;
 
   const [form, setForm] = useState({
     title: '',
@@ -20,6 +23,28 @@ const PortfolioWrite = () => {
     content: '',
   });
   const [submitting, setSubmitting] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isEdit) {
+      loadItem();
+    }
+  }, [id]);
+
+  const loadItem = async () => {
+    setLoading(true);
+    const data = await getPortfolioById(id);
+    if (data) {
+      setForm({
+        title: data.title || '',
+        summary: data.summary || '',
+        cover_image: data.cover_image || '',
+        tags: data.tags || '',
+        content: data.content || '',
+      });
+    }
+    setLoading(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,16 +52,26 @@ const PortfolioWrite = () => {
 
     setSubmitting(true);
     try {
-      const item = await createPortfolio({
+      const portfolioData = {
         title: form.title.trim(),
         summary: form.summary.trim(),
         cover_image: form.cover_image.trim() || null,
         tags: form.tags.trim() || null,
         content: form.content.trim(),
-        user_id: user.id,
-        author_name: user.user_metadata?.full_name || user.email,
-      });
-      showToast('포트폴리오가 등록되었습니다.', 'success');
+      };
+
+      let item;
+      if (isEdit) {
+        item = await updatePortfolio(id, portfolioData);
+        showToast(t('site.portfolio.updated'), 'success');
+      } else {
+        item = await createPortfolio({
+          ...portfolioData,
+          user_id: user.id,
+          author_name: user.user_metadata?.full_name || user.email,
+        });
+        showToast('포트폴리오가 등록되었습니다.', 'success');
+      }
       navigate(`/community/portfolio/${item.id}`);
     } catch (err) {
       showToast(err.message, 'error');
@@ -45,13 +80,25 @@ const PortfolioWrite = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <section className="section">
+        <div className="container" style={{ textAlign: 'center', padding: '80px 0' }}>
+          <div className="loading-spinner"></div>
+        </div>
+      </section>
+    );
+  }
+
+  const pageTitle = isEdit ? t('site.portfolio.editTitle') : t('site.portfolio.writeTitle');
+
   return (
     <>
-      <SEOHead title={t('site.portfolio.writeTitle')} path="/community/portfolio/write" noindex />
+      <SEOHead title={pageTitle} path={isEdit ? `/community/portfolio/edit/${id}` : '/community/portfolio/write'} noindex />
 
       <section className="page-header">
         <div className="container">
-          <h1>{t('site.portfolio.writeTitle')}</h1>
+          <h1>{pageTitle}</h1>
         </div>
       </section>
 

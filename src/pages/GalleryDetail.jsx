@@ -134,6 +134,14 @@ const GalleryDetail = () => {
               </div>
             </div>
 
+            {item.link_url && (
+              <div style={{ padding: '12px 24px', borderBottom: '1px solid var(--border-light)' }}>
+                <a href={item.link_url} target="_blank" rel="noopener noreferrer" className="board-btn primary">
+                  {t('site.gallery.openLink')} ↗
+                </a>
+              </div>
+            )}
+
             {item.description && (
               <div className="board-detail-content">
                 {item.description.split('\n').map((line, i) => (
@@ -144,6 +152,11 @@ const GalleryDetail = () => {
 
             <div className="board-detail-actions">
               <Link to="/community/gallery" className="board-btn">{t('site.gallery.backToList')}</Link>
+              {(isAuthor || isAdmin) && (
+                <Link to={`/community/gallery/edit/${id}`} className="board-btn">
+                  {t('site.gallery.edit')}
+                </Link>
+              )}
               {(isAuthor || isAdmin) && (
                 <button className="board-btn danger" onClick={handleDelete}>
                   {t('site.gallery.delete')}
