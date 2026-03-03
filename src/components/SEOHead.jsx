@@ -6,7 +6,7 @@ const SEOHead = ({ title, description, path = '', ogImage, noindex = false }) =>
   const DEFAULT_DESC = '코리아텍 컴퓨팅 사고 - 파이썬 기초부터 문제해결까지';
   const fullTitle = title ? `${title} | ${SITE}` : SITE;
   const desc = description || DEFAULT_DESC;
-  const image = ogImage || `${BASE}/favicon.svg`;
+  const image = ogImage || `${BASE}/og-image.png`;
 
   const { language } = useLanguage();
 
