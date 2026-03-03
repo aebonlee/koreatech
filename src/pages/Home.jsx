@@ -8,6 +8,17 @@ const Home = () => {
   const { t } = useLanguage();
   useAOS();
 
+  const aiTips = [
+    { path: '/ai-tips/chatgpt',  title: 'ChatGPT',        desc: 'OpenAI의 대화형 AI 활용법',          icon: '💬' },
+    { path: '/ai-tips/claude',   title: 'Claude',          desc: 'Anthropic의 AI 어시스턴트 활용법',    icon: '🤖' },
+    { path: '/ai-tips/gemini',   title: 'Gemini',          desc: 'Google의 멀티모달 AI 활용법',         icon: '✨' },
+    { path: '/ai-tips/copilot',  title: 'Copilot',         desc: 'GitHub AI 코딩 어시스턴트 활용법',     icon: '👨‍💻' },
+    { path: '/ai-tips/prompt',   title: '프롬프트 작성법',   desc: '효과적인 프롬프트 엔지니어링',         icon: '✏️' },
+    { path: '/ai-tips/coding',   title: 'AI 코딩 활용',     desc: '코드 생성, 디버깅, 리팩토링',         icon: '💻' },
+    { path: '/ai-tips/writing',  title: 'AI 문서 작성',     desc: '보고서, 요약, 번역, 이메일',          icon: '📝' },
+    { path: '/ai-tips/learning', title: 'AI 학습 활용',     desc: '개념 설명, 퀴즈, 학습 계획',          icon: '📚' },
+  ];
+
   const chapters = [
     { path: '/python/setup',     title: '실습환경 구축',           desc: 'Python 설치, IDLE, VS Code 설정',       icon: '🖥️', step: '1주차' },
     { path: '/python/io',        title: '입출력과 변수',           desc: 'print(), input(), 변수, f-string',      icon: '⌨️', step: '2주차' },
@@ -80,6 +91,29 @@ const Home = () => {
                 <span className="curriculum-icon">{ch.icon}</span>
                 <h3 className="curriculum-card-title">{ch.title}</h3>
                 <p className="curriculum-card-desc">{ch.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Tips Cards */}
+      <section className="section curriculum-section">
+        <div className="container">
+          <h2 className="section-title" data-aos="fade-up">{t('site.aiTips.title')}</h2>
+          <p className="section-subtitle" data-aos="fade-up">{t('site.aiTips.subtitle')}</p>
+          <div className="curriculum-grid">
+            {aiTips.map((item, i) => (
+              <Link
+                to={item.path}
+                key={item.path}
+                className="curriculum-card"
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+              >
+                <span className="curriculum-icon">{item.icon}</span>
+                <h3 className="curriculum-card-title">{item.title}</h3>
+                <p className="curriculum-card-desc">{item.desc}</p>
               </Link>
             ))}
           </div>
