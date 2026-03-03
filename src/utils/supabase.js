@@ -607,4 +607,145 @@ export const deletePortfolioComment = async (id) => {
   if (error) throw error;
 };
 
+// ─── Websites (웹 추천사이트) ───
+
+const WEBSITES_PER_PAGE = 12;
+
+export const getWebsites = async (page = 1, category = null) => {
+  const client = getSupabase();
+  if (!client) return { items: [], total: 0 };
+
+  let query = client
+    .from('websites')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false });
+
+  if (category) {
+    query = query.eq('category', category);
+  }
+
+  const from = (page - 1) * WEBSITES_PER_PAGE;
+  const to = from + WEBSITES_PER_PAGE - 1;
+  query = query.range(from, to);
+
+  const { data, error, count } = await query;
+
+  if (error) {
+    console.error('getWebsites error:', error);
+    return { items: [], total: 0 };
+  }
+
+  return { items: data || [], total: count || 0 };
+};
+
+export const getWebsiteById = async (id) => {
+  const client = getSupabase();
+  if (!client) return null;
+
+  const { data, error } = await client
+    .from('websites')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error('getWebsiteById error:', error);
+    return null;
+  }
+
+  return data;
+};
+
+export const createWebsite = async (itemData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('websites')
+    .insert(itemData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const updateWebsite = async (id, itemData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('websites')
+    .update(itemData)
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const deleteWebsite = async (id) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { error } = await client
+    .from('websites')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+};
+
+export const incrementWebsiteViews = async (id) => {
+  const client = getSupabase();
+  if (!client) return;
+
+  await client.rpc('increment_website_views', { item_id: id }).catch(() => {});
+};
+
+export const getWebsiteComments = async (websiteId) => {
+  const client = getSupabase();
+  if (!client) return [];
+
+  const { data, error } = await client
+    .from('websites_comments')
+    .select('*')
+    .eq('website_id', websiteId)
+    .order('created_at', { ascending: true });
+
+  if (error) {
+    console.error('getWebsiteComments error:', error);
+    return [];
+  }
+
+  return data || [];
+};
+
+export const createWebsiteComment = async (commentData) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { data, error } = await client
+    .from('websites_comments')
+    .insert(commentData)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const deleteWebsiteComment = async (id) => {
+  const client = getSupabase();
+  if (!client) throw new Error('Supabase not configured');
+
+  const { error } = await client
+    .from('websites_comments')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+};
+
 export default getSupabase;

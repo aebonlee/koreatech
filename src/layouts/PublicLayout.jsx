@@ -45,6 +45,9 @@ const GalleryWrite = lazy(() => import('../pages/GalleryWrite'));
 const Portfolio = lazy(() => import('../pages/Portfolio'));
 const PortfolioDetail = lazy(() => import('../pages/PortfolioDetail'));
 const PortfolioWrite = lazy(() => import('../pages/PortfolioWrite'));
+const Websites = lazy(() => import('../pages/Websites'));
+const WebsiteDetail = lazy(() => import('../pages/WebsiteDetail'));
+const WebsiteWrite = lazy(() => import('../pages/WebsiteWrite'));
 const LectureMaterials = lazy(() => import('../pages/LectureMaterials'));
 const Lectures = lazy(() => import('../pages/Lectures'));
 const LectureDetail = lazy(() => import('../pages/LectureDetail'));
@@ -133,6 +136,12 @@ const PublicLayout = () => {
             <Route path="/community/portfolio/write" element={<AuthGuard><PortfolioWrite /></AuthGuard>} />
             <Route path="/community/portfolio/edit/:id" element={<AuthGuard><PortfolioWrite /></AuthGuard>} />
             <Route path="/community/portfolio/:id" element={<PortfolioDetail />} />
+
+            {/* Community — Websites (웹 추천사이트) */}
+            <Route path="/community/websites" element={<Websites />} />
+            <Route path="/community/websites/write" element={<AuthGuard><WebsiteWrite /></AuthGuard>} />
+            <Route path="/community/websites/edit/:id" element={<AuthGuard><WebsiteWrite /></AuthGuard>} />
+            <Route path="/community/websites/:id" element={<WebsiteDetail />} />
 
             {/* Admin */}
             <Route path="/admin" element={<AuthGuard><Admin /></AuthGuard>} />

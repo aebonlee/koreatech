@@ -86,6 +86,7 @@ const site = {
         { path: '/community/board', labelKey: 'site.nav.board' },
         { path: '/community/gallery', labelKey: 'site.nav.gallery' },
         { path: '/community/portfolio', labelKey: 'site.nav.portfolio' },
+        { path: '/community/websites', labelKey: 'site.nav.websites' },
       ]
     }
   ],
@@ -100,7 +101,8 @@ const site = {
     { path: '/references', labelKey: 'site.nav.references' },
     { path: '/community/board', labelKey: 'site.nav.board' },
     { path: '/community/gallery', labelKey: 'site.nav.gallery' },
-    { path: '/community/portfolio', labelKey: 'site.nav.portfolio' }
+    { path: '/community/portfolio', labelKey: 'site.nav.portfolio' },
+    { path: '/community/websites', labelKey: 'site.nav.websites' }
   ],
 
   // Family Site 목록

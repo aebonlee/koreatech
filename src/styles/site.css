@@ -1389,6 +1389,18 @@
   background: #111827;
 }
 
+/* ─── Website URL Display ─── */
+.website-url {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  margin-bottom: 6px;
+}
+
 /* ─── Portfolio Blog Card ─── */
 .portfolio-summary {
   font-size: 0.9rem;
