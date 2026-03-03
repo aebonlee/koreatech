@@ -84,8 +84,11 @@ const site = {
   // 푸터 바로가기 링크
   footerLinks: [
     { path: '/', labelKey: 'nav.home' },
+    { path: '/ct/what-is-ct', labelKey: 'site.nav.ct' },
     { path: '/python', labelKey: 'site.nav.python' },
+    { path: '/ai-tips', labelKey: 'site.nav.aiTips' },
     { path: '/lectures', labelKey: 'site.nav.lectures' },
+    { path: '/references', labelKey: 'site.nav.references' },
     { path: '/board', labelKey: 'site.nav.board' }
   ],
 
