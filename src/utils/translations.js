@@ -74,6 +74,9 @@ export const translations = {
       deleteConfirm: '댓글을 삭제하시겠습니까?',
       loginRequired: '댓글을 작성하려면 로그인이 필요합니다.'
     },
+    download: {
+      loginRequired: '다운로드하려면 로그인이 필요합니다.'
+    },
     community: {
       cancel: '취소',
       loading: '로딩 중...'
@@ -353,6 +356,9 @@ export const translations = {
       delete: 'Delete',
       deleteConfirm: 'Are you sure you want to delete this comment?',
       loginRequired: 'Please log in to leave a comment.'
+    },
+    download: {
+      loginRequired: 'Please log in to download.'
     },
     community: {
       cancel: 'Cancel',

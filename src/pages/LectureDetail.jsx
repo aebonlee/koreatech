@@ -10,7 +10,7 @@ const LectureDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { t } = useLanguage();
-  const { isAdmin } = useAuth();
+  const { isAdmin, isLoggedIn } = useAuth();
   const { showToast } = useToast();
 
   const [lecture, setLecture] = useState(null);
@@ -96,14 +96,26 @@ const LectureDetail = () => {
 
             {lecture.file_url && (
               <div className="lecture-file-section">
-                <a
-                  href={lecture.file_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="board-btn primary"
-                >
-                  {t('site.lectures.download')}
-                </a>
+                {isLoggedIn ? (
+                  <a
+                    href={lecture.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="board-btn primary"
+                  >
+                    {t('site.lectures.download')}
+                  </a>
+                ) : (
+                  <button
+                    className="board-btn primary"
+                    onClick={() => {
+                      showToast(t('download.loginRequired'), 'error');
+                      navigate('/login');
+                    }}
+                  >
+                    {t('site.lectures.download')}
+                  </button>
+                )}
               </div>
             )}
 

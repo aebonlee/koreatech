@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useAuth } from '../contexts/AuthContext';
+import { useToast } from '../contexts/ToastContext';
 import SEOHead from '../components/SEOHead';
 
 const PDF_LIST = [
@@ -17,9 +20,20 @@ const PDF_LIST = [
 ];
 
 const LectureMaterials = () => {
+  const navigate = useNavigate();
   const { t, language } = useLanguage();
+  const { isLoggedIn } = useAuth();
+  const { showToast } = useToast();
 
   const getPdfUrl = (file) => `${import.meta.env.BASE_URL}pdf/${file}`;
+
+  const handleDownload = (e, file) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      showToast(t('download.loginRequired'), 'error');
+      navigate('/login');
+    }
+  };
 
   return (
     <>
@@ -63,6 +77,7 @@ const LectureMaterials = () => {
                           href={getPdfUrl(pdf.file)}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={(e) => handleDownload(e, pdf.file)}
                         >
                           {t('site.lectures.materials.view')}
                         </a>
@@ -70,6 +85,7 @@ const LectureMaterials = () => {
                           className="materials-btn download"
                           href={getPdfUrl(pdf.file)}
                           download={pdf.file}
+                          onClick={(e) => handleDownload(e, pdf.file)}
                         >
                           {t('site.lectures.materials.download')}
                         </a>
