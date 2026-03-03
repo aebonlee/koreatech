@@ -114,6 +114,7 @@ const GalleryWrite = () => {
                 <option value="artwork">{t('site.gallery.artwork')}</option>
                 <option value="project">{t('site.gallery.project')}</option>
                 <option value="screenshot">{t('site.gallery.screenshot')}</option>
+                <option value="coding">{t('site.gallery.coding')}</option>
               </select>
             </div>
 

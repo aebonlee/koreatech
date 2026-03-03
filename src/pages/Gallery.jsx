@@ -6,7 +6,7 @@ import { getGalleryItems } from '../utils/supabase';
 import Pagination from '../components/Pagination';
 import SEOHead from '../components/SEOHead';
 
-const CATEGORIES = ['all', 'artwork', 'project', 'screenshot'];
+const CATEGORIES = ['all', 'artwork', 'project', 'screenshot', 'coding'];
 
 const Gallery = () => {
   const { t } = useLanguage();
@@ -39,6 +39,7 @@ const Gallery = () => {
       artwork: t('site.gallery.artwork'),
       project: t('site.gallery.project'),
       screenshot: t('site.gallery.screenshot'),
+      coding: t('site.gallery.coding'),
     };
     return map[cat] || cat;
   };
