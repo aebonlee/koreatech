@@ -10,22 +10,11 @@ const getTimeBasedTheme = () => {
 const COLOR_THEMES = ['blue', 'red', 'green', 'purple', 'orange'];
 
 export const ThemeProvider = ({ children }) => {
-  const [mode, setMode] = useState(() => {
-    const saved = localStorage.getItem('themeMode');
-    if (saved === 'light' || saved === 'dark' || saved === 'auto') return saved;
-    const legacy = localStorage.getItem('theme');
-    if (legacy === 'light' || legacy === 'dark') return legacy;
-    return 'auto';
-  });
+  const [mode, setMode] = useState('auto');
 
-  const [theme, setTheme] = useState(() => {
-    return mode === 'auto' ? getTimeBasedTheme() : mode;
-  });
+  const [theme, setTheme] = useState(() => getTimeBasedTheme());
 
-  const [colorTheme, setColorTheme] = useState(() => {
-    const saved = localStorage.getItem('colorTheme');
-    return COLOR_THEMES.includes(saved) ? saved : 'blue';
-  });
+  const [colorTheme, setColorTheme] = useState('blue');
 
   useEffect(() => {
     if (mode !== 'auto') {
@@ -45,13 +34,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-color', colorTheme);
-    localStorage.setItem('colorTheme', colorTheme);
   }, [colorTheme]);
-
-  useEffect(() => {
-    localStorage.setItem('themeMode', mode);
-    localStorage.removeItem('theme');
-  }, [mode]);
 
   const toggleTheme = () => {
     setMode(prev => {
