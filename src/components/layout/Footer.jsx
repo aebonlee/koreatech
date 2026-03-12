@@ -31,7 +31,19 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2020-{new Date().getFullYear()} DreamIT Biz. All rights reserved.</p>
+          <p>&copy; 2025 드림아이티비즈(DreamIT Biz). All rights reserved.</p>
+          <p className="footer-meta">
+            Designed by Ph.D Aebon Lee
+            <span className="footer-divider">|</span>
+            대표이사: 이애본
+            <span className="footer-divider">|</span>
+            사업자등록번호: 601-45-20154
+          </p>
+          <p className="footer-meta">
+            통신판매신고번호: 제2024-수원팔달-0584호
+            <span className="footer-divider">|</span>
+            출판사 신고번호: 제2026-000026호
+          </p>
         </div>
       </div>
     </footer>
