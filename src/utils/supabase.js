@@ -308,9 +308,12 @@ export const getAllProfiles = async () => {
   const client = getSupabase();
   if (!client) return [];
 
+  const domain = window.location.hostname;
+
   const { data, error } = await client
     .from('user_profiles')
     .select('*')
+    .eq('signup_domain', domain)
     .order('created_at', { ascending: false });
 
   if (error) {

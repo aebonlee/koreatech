@@ -236,6 +236,8 @@ export const translations = {
         subtitle: '주차별 참고 자료를 확인하세요',
         write: '참고자료 등록',
         empty: '등록된 참고자료가 없습니다.',
+        noFile: '파일 없음',
+        noContent: '등록된 내용이 없습니다.',
       },
       admin: {
         title: '관리자',
@@ -619,6 +621,8 @@ export const translations = {
         subtitle: 'Check weekly reference materials',
         write: 'New Reference',
         empty: 'No references available.',
+        noFile: 'No file',
+        noContent: 'No content available.',
       },
       admin: {
         title: 'Admin',

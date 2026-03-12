@@ -2003,3 +2003,104 @@
   background: #111827;
   border-bottom-color: #374151;
 }
+
+/* ─── References Dropdown Style ─── */
+.ref-col-actions {
+  width: 260px;
+}
+
+.ref-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ref-expand-icon {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  transition: transform 0.2s;
+}
+
+.ref-expand-icon.expanded {
+  transform: rotate(90deg);
+}
+
+.ref-no-file {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.ref-edit-btn {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+  border-color: #f59e0b !important;
+}
+
+.ref-edit-btn:hover {
+  background: #f59e0b !important;
+  color: #fff !important;
+}
+
+.ref-dropdown-row td {
+  padding: 0 !important;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.ref-dropdown-content {
+  padding: 20px 24px;
+  background: var(--bg-light-gray);
+  border-top: 1px dashed var(--border-light);
+}
+
+.ref-content-text {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.ref-content-text p {
+  margin: 0 0 4px;
+}
+
+.ref-content-empty {
+  color: var(--text-light);
+  font-style: italic;
+  margin: 0;
+}
+
+.ref-description {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ─── References Responsive ─── */
+@media (max-width: 768px) {
+  .ref-col-actions {
+    width: auto;
+  }
+}
+
+/* ─── References Dark Mode ─── */
+[data-theme="dark"] .ref-dropdown-content {
+  background: #111827;
+  border-top-color: #374151;
+}
+
+[data-theme="dark"] .ref-description {
+  border-top-color: #374151;
+}
+
+[data-theme="dark"] .ref-edit-btn {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+  border-color: #374151 !important;
+}
+
+[data-theme="dark"] .ref-edit-btn:hover {
+  background: #f59e0b !important;
+  color: #fff !important;
+}
